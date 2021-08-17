@@ -10,9 +10,9 @@ import UIKit
 class OngoingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var mangaList: [Manga]?
+    let someView = ViewForListController()
     
     override func loadView() {
-        let someView = ViewForListController()
         super.loadView()
         view = someView
         someView.tableView.dataSource = self
@@ -24,6 +24,10 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
     
+//    func setupSearchBar(){(
+//        //
+//    }
+    
 }
 
 extension OngoingsViewController{
@@ -33,7 +37,11 @@ extension OngoingsViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath) as! MangaTitleTableViewCell
-        cell.lbl.text = mangaList?[indexPath.row].title
+        //cell.lbl.text = mangaList?[indexPath.row].title
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 152
     }
 }

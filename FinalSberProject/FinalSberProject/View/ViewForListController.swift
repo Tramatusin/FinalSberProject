@@ -12,14 +12,17 @@ class ViewForListController: UIView, UITableViewDelegate{
     var tapOnChooseType: (()->())?
     
     lazy var selectorMangaType: UISegmentedControl = {
-        let selector = UISegmentedControl()
+        let selector = UISegmentedControl(items: ["Манга","Манхва","Маньхуа"])
         selector.addTarget(self, action: #selector(didChooseMangaType), for: .touchUpInside)
+        selector.translatesAutoresizingMaskIntoConstraints = false
         return selector
     }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(MangaTitleTableViewCell.self, forCellReuseIdentifier: "mangaCell")
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -31,12 +34,17 @@ class ViewForListController: UIView, UITableViewDelegate{
     
     func setupConstraint(){
         addSubview(tableView)
+        addSubview(selectorMangaType)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.topAnchor),
+            selectorMangaType.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            selectorMangaType.rightAnchor.constraint(equalTo: self.rightAnchor,constant: -8),
+            selectorMangaType.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 8),
+            
+            tableView.topAnchor.constraint(equalTo: selectorMangaType.bottomAnchor,constant: 16),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: self.rightAnchor)
+            tableView.leftAnchor.constraint(equalTo: leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
     }
     

@@ -44,4 +44,9 @@ extension OngoingsViewController{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 152
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = MangaViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

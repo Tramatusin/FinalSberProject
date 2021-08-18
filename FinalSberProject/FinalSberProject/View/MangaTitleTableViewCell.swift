@@ -68,8 +68,8 @@ class MangaTitleTableViewCell: UITableViewCell{
     
     lazy var labelForRaiting: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.text = "R: 4.39"
+        label.textColor = .systemYellow
+        label.text = "R: 4.39 ✭"
         label.textAlignment = .right
         label.numberOfLines = 0
         label.font = UIFont(name: "SFProText-Light", size: 12)
@@ -127,15 +127,16 @@ class MangaTitleTableViewCell: UITableViewCell{
             //gradientView.widthAnchor.constraint(equalToConstant: 80),
             //gradientView.heightAnchor.constraint(equalToConstant: 23),
             
-            labelOfCountChapters.leftAnchor.constraint(equalTo: gradientView.leftAnchor, constant: 24),
+            labelOfCountChapters.leftAnchor.constraint(equalTo: gradientView.leftAnchor, constant: 32),
             labelOfCountChapters.topAnchor.constraint(equalTo: gradientView.topAnchor, constant: 8),
             labelOfCountChapters.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: -8),
-            labelOfCountChapters.rightAnchor.constraint(equalTo: gradientView.rightAnchor, constant: -24),
+            labelOfCountChapters.rightAnchor.constraint(equalTo: gradientView.rightAnchor, constant: -32),
 
             buttonForFavourite.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -8),
             buttonForFavourite.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor),
-            buttonForFavourite.topAnchor.constraint(equalTo: gradientView.topAnchor),
-            buttonForFavourite.widthAnchor.constraint(equalToConstant: 25)
+            //buttonForFavourite.topAnchor.constraint(equalTo: gradientView.topAnchor),
+            buttonForFavourite.widthAnchor.constraint(equalToConstant: 35),
+            buttonForFavourite.heightAnchor.constraint(equalTo: buttonForFavourite.widthAnchor)
         ])
     }
     

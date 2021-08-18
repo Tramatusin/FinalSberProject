@@ -23,6 +23,8 @@
 		5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* Manga.swift */; };
 		5B284B2F26CC273B00A44DBF /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */; };
 		5B284B3126CC276400A44DBF /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */; };
+		5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */; };
+		5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		5B1A9D5826CA8E9F00719B28 /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Medium.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
+		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
+		5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForSelectedManga.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			children = (
 				5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */,
 				5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */,
+				5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1A9D1926CA6C4A00719B28 /* OngoingsViewController.swift */,
+				5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -335,11 +341,13 @@
 				5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */,
 				5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */,
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,
+				5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */,
 				5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */,
 				5B1A9D2026CA6C4A00719B28 /* FinalSberProject.xcdatamodeld in Sources */,
 				5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */,
 				5B1A9D4C26CA6F8600719B28 /* ViewForListController.swift in Sources */,
 				5B1A9D5326CA719200719B28 /* JSONBuildManager.swift in Sources */,
+				5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */,
 				5B1A9D1826CA6C4A00719B28 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

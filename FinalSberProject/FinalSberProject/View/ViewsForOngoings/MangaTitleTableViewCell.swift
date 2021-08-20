@@ -32,7 +32,6 @@ class MangaTitleTableViewCell: UITableViewCell{
         label.font = UIFont(name: "SFProText-Medium", size: 14)
         label.textColor = .black
         label.text = "Поднятие уровня в одиночку dsfsnlnsen fnwefonownwpn"
-        label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -48,8 +47,8 @@ class MangaTitleTableViewCell: UITableViewCell{
         return label
     }()
     
-    lazy var gradientView: UIView = {
-        let view = UIView()
+    lazy var gradientView: GradientView = {
+        let view = GradientView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 8
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +70,6 @@ class MangaTitleTableViewCell: UITableViewCell{
         label.textColor = .systemYellow
         label.text = "R: 4.39 ✭"
         label.textAlignment = .right
-        label.numberOfLines = 0
         label.font = UIFont(name: "SFProText-Light", size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -116,11 +114,12 @@ class MangaTitleTableViewCell: UITableViewCell{
             
             labelForRaiting.rightAnchor.constraint(equalTo: buttonForFavourite.rightAnchor),
             labelForRaiting.leftAnchor.constraint(equalTo: labelOfTitle.rightAnchor, constant: 4),
-            labelForRaiting.topAnchor.constraint(equalTo: labelOfTitle.topAnchor),
+            labelForRaiting.bottomAnchor.constraint(equalTo: labelOfTitle.bottomAnchor),
             
             labelOfTags.rightAnchor.constraint(equalTo: labelOfTitle.rightAnchor),
             labelOfTags.leftAnchor.constraint(equalTo: labelOfTitle.leftAnchor),
-            labelOfTags.topAnchor.constraint(equalTo: labelOfTitle.bottomAnchor),
+            labelOfTags.topAnchor.constraint(equalTo: labelOfTitle.bottomAnchor,constant: 2),
+            //labelOfTags.bottomAnchor.constraint(greaterThanOrEqualTo: gradientView.topAnchor, constant: -4),
 
             gradientView.leftAnchor.constraint(equalTo: labelOfTitle.leftAnchor),
             gradientView.bottomAnchor.constraint(equalTo: imageOfTitle.bottomAnchor),
@@ -140,17 +139,6 @@ class MangaTitleTableViewCell: UITableViewCell{
         ])
     }
     
-    func setupGradientView(){
-        let layer0 = CAGradientLayer()
-        layer0.colors = [
-            UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1).cgColor,
-            UIColor(red: 0.949, green: 0.788, blue: 0.298, alpha: 1).cgColor
-        ]
-        layer0.locations = [0, 1]
-        layer0.frame = gradientView.bounds
-        gradientView.layer.insertSublayer(layer0, at:0)
-    }
-    
     func setupCellAndShadow(){
         self.viewForItems.layer.cornerRadius = 20
         self.viewForItems.clipsToBounds = false
@@ -158,6 +146,7 @@ class MangaTitleTableViewCell: UITableViewCell{
         viewForItems.layer.shadowOpacity = 1
         viewForItems.layer.shadowRadius = 7
         viewForItems.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        viewForItems.layer.shadowPath = UIBezierPath(roundedRect: viewForItems.bounds, cornerRadius: 20).cgPath
     }
     
     override func layoutSubviews() {
@@ -165,7 +154,7 @@ class MangaTitleTableViewCell: UITableViewCell{
         backgroundColor = .white
         self.selectionStyle = .none
         setupCellAndShadow()
-        setupGradientView()
+        //setupGradientView()
         setupConstraint()
     }
 }

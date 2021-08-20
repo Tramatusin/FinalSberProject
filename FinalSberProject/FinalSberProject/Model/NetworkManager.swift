@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkManager {
-    func getMangaList(completion: @escaping ([Any])->())
+    func getMangaList(url: URL,completion: @escaping ([Any])->())
 }
 
 protocol JsonBuilderManager {

@@ -11,6 +11,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var mangaList: [Manga]?
     let someView = ViewForListController()
+    let nm = NetworkManagerImp()
     
     override func loadView() {
         super.loadView()
@@ -21,7 +22,13 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        guard let urlStr = URL(string: "http://hsemanga.ddns.net:7000/catalogues/manga/") else {
+            return
+        }
+        nm.getMangaList(url: urlStr) { items in
+            print(items)
+        }
+        navigationItem.title = "Онгоинги"
     }
     
 //    func setupSearchBar(){(

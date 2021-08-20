@@ -20,6 +20,8 @@ class ViewForSelectedManga: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .white
+        tableView.register(ChapterOfMangaTableViewCell.self, forCellReuseIdentifier: ChapterOfMangaTableViewCell.identifier)
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -34,6 +36,8 @@ class ViewForSelectedManga: UIView {
     lazy var labelForManagName: UILabel = {
         let label = UILabel()
         label.text = "SoloLeveling"
+        label.font = UIFont(name: "SFProText-Medium", size: 14)
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,7 +45,8 @@ class ViewForSelectedManga: UIView {
     lazy var buttonForFullDescription: UIButton = {
         let button = UIButton()
         button.setTitle("Описание", for: .normal)
-        button.tintColor = .black
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 12)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -80,18 +85,14 @@ class ViewForSelectedManga: UIView {
             
             viewForItems.rightAnchor.constraint(equalTo: rightAnchor),
             viewForItems.leftAnchor.constraint(equalTo: leftAnchor),
-            viewForItems.heightAnchor.constraint(equalToConstant: 35),
+            //viewForItems.heightAnchor.constraint(equalToConstant: 35),
             viewForItems.centerYAnchor.constraint(equalTo: imageViewForTitle.bottomAnchor),
             
             buttonForFullDescription.topAnchor.constraint(equalTo: viewForItems.topAnchor, constant: 4),
-            buttonForFullDescription.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -4),
+            buttonForFullDescription.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -8),
             buttonForFullDescription.bottomAnchor.constraint(equalTo: labelForManagName.bottomAnchor)
         ])
     }
-    
-//    override func draw(_ rect: CGRect) {
-//        super.draw(rect)
-//    }
     
     func drawView(){
         let path = UIBezierPath(roundedRect: viewForItems.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 16, height: 16))
@@ -103,7 +104,6 @@ class ViewForSelectedManga: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //viewForItems.layer.cornerRadius = 16
         backgroundColor = .white
         drawView()
     }

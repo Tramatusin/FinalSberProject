@@ -38,6 +38,7 @@ class ViewForSelectedManga: UIView {
         label.text = "SoloLeveling"
         label.font = UIFont(name: "SFProText-Medium", size: 14)
         label.numberOfLines = 0
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

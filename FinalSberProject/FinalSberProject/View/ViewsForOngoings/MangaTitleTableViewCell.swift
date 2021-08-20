@@ -31,8 +31,9 @@ class MangaTitleTableViewCell: UITableViewCell{
         let label = UILabel()
         label.font = UIFont(name: "SFProText-Medium", size: 14)
         label.textColor = .black
-        label.text = "Поднятие уровня в одиночку dsfsnlnsen fnwefonownwpn"
+        label.text = "Поднятие уровня в одиночку"
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -114,7 +115,7 @@ class MangaTitleTableViewCell: UITableViewCell{
             
             labelForRaiting.rightAnchor.constraint(equalTo: buttonForFavourite.rightAnchor),
             labelForRaiting.leftAnchor.constraint(equalTo: labelOfTitle.rightAnchor, constant: 4),
-            labelForRaiting.bottomAnchor.constraint(equalTo: labelOfTitle.bottomAnchor),
+            labelForRaiting.topAnchor.constraint(equalTo: labelOfTitle.topAnchor),
             
             labelOfTags.rightAnchor.constraint(equalTo: labelOfTitle.rightAnchor),
             labelOfTags.leftAnchor.constraint(equalTo: labelOfTitle.leftAnchor),

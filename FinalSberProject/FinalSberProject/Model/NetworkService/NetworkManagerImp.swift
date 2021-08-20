@@ -11,7 +11,7 @@ class NetworkManagerImp: NetworkManager{
     let parseJson = JSONParser()
     let buildJson = JSONBuildManagerImp()
     
-    func getMangaList(url: URL,completion: @escaping ([Any]) -> ()) {
+    func getMangaList(url: URL,completion: @escaping (Result<[Manga],Error>) -> ()) {
         var request = URLRequest(url: url)
         let mangaGetGroup = DispatchGroup()
         var mangaList: [Manga] = []
@@ -37,7 +37,7 @@ class NetworkManagerImp: NetworkManager{
         }
         
         mangaGetGroup.notify(queue: .global()) {
-            completion(mangaList)
+            completion(.success(mangaList))
         }
     }
     

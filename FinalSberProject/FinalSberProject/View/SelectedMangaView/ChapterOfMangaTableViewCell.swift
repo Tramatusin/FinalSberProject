@@ -83,6 +83,7 @@ class ChapterOfMangaTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        backgroundColor = .white
         setupShadow()
         setupConstraint()
     }

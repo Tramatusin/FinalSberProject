@@ -25,6 +25,7 @@
 		5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */; };
 		5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */; };
 		5B27FF2526CFDBDB00374DD0 /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */; };
+		5B27FF2726D0048600374DD0 /* URL's.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2626D0048600374DD0 /* URL's.swift */; };
 		5B284B2F26CC273B00A44DBF /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */; };
 		5B284B3126CC276400A44DBF /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */; };
 		5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */; };
@@ -73,6 +74,7 @@
 		5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
+		5B27FF2626D0048600374DD0 /* URL's.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL's.swift"; sourceTree = "<group>"; };
 		5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Medium.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1A9D5826CA8E9F00719B28 /* Manga.swift */,
+				5B27FF2626D0048600374DD0 /* URL's.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,
 				5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */,
 				5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */,
+				5B27FF2726D0048600374DD0 /* URL's.swift in Sources */,
 				5B1A9D2026CA6C4A00719B28 /* FinalSberProject.xcdatamodeld in Sources */,
 				5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */,
 				5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */,

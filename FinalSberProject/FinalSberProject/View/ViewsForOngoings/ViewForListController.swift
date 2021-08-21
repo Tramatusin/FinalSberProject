@@ -9,15 +9,7 @@ import Foundation
 import UIKit
 
 class ViewForListController: UIView, UITableViewDelegate{
-    var tapOnChooseType: (()->())?
-    
-//    lazy var selectorMangaType: UISegmentedControl = {
-//        let selector = UISegmentedControl(items: ["Манга","Манхва","Маньхуа"])
-//        selector.addTarget(self, action: #selector(didChooseMangaType), for: .touchUpInside)
-//        selector.translatesAutoresizingMaskIntoConstraints = false
-//        return selector
-//    }()
-    
+
     lazy var viewForSegmentControl: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -79,10 +71,10 @@ class ViewForListController: UIView, UITableViewDelegate{
         viewForButtons.addSubview(manhuyaBut)
         
         NSLayoutConstraint.activate([
-            viewForButtons.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            viewForButtons.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             viewForButtons.rightAnchor.constraint(equalTo: rightAnchor,constant: -8),
             viewForButtons.leftAnchor.constraint(equalTo: leftAnchor,constant: 8),
-            viewForButtons.heightAnchor.constraint(equalToConstant: 45),
+            viewForButtons.heightAnchor.constraint(equalToConstant: 50),
             
             mangaBut.leftAnchor.constraint(equalTo: viewForButtons.leftAnchor),
             mangaBut.widthAnchor.constraint(equalTo: viewForButtons.widthAnchor, multiplier: 0.3),
@@ -98,7 +90,7 @@ class ViewForListController: UIView, UITableViewDelegate{
             manhuyaBut.heightAnchor.constraint(equalTo: mangaBut.heightAnchor),
             manhuyaBut.centerYAnchor.constraint(equalTo: mangaBut.centerYAnchor),
             
-            tableView.topAnchor.constraint(equalTo: viewForButtons.bottomAnchor,constant: 8),
+            tableView.topAnchor.constraint(equalTo: viewForButtons.bottomAnchor,constant: 4),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
             tableView.rightAnchor.constraint(equalTo: rightAnchor)
@@ -116,10 +108,6 @@ class ViewForListController: UIView, UITableViewDelegate{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func didChooseMangaType(){
-        tapOnChooseType?()
     }
     
     override func layoutSubviews() {

@@ -38,6 +38,7 @@ class ViewForSelectedManga: UIView {
         label.text = "SoloLeveling"
         label.font = UIFont(name: "SFProText-Medium", size: 14)
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -48,6 +49,7 @@ class ViewForSelectedManga: UIView {
         button.setTitle("Описание", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 12)
+        button.sizeToFit()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -81,7 +83,7 @@ class ViewForSelectedManga: UIView {
             
             labelForManagName.leftAnchor.constraint(equalTo: viewForItems.leftAnchor, constant: 4),
             labelForManagName.topAnchor.constraint(equalTo: viewForItems.topAnchor, constant: 4),
-            labelForManagName.rightAnchor.constraint(lessThanOrEqualTo: buttonForFullDescription.leftAnchor, constant: -4),
+            labelForManagName.rightAnchor.constraint(equalTo: buttonForFullDescription.leftAnchor, constant: -4),
             labelForManagName.bottomAnchor.constraint(equalTo: viewForItems.bottomAnchor, constant: -4),
             
             viewForItems.rightAnchor.constraint(equalTo: rightAnchor),
@@ -91,8 +93,17 @@ class ViewForSelectedManga: UIView {
             
             buttonForFullDescription.topAnchor.constraint(equalTo: viewForItems.topAnchor, constant: 4),
             buttonForFullDescription.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -8),
-            buttonForFullDescription.bottomAnchor.constraint(equalTo: labelForManagName.bottomAnchor)
+            buttonForFullDescription.bottomAnchor.constraint(equalTo: labelForManagName.bottomAnchor),
+            buttonForFullDescription.widthAnchor.constraint(equalTo: viewForItems.widthAnchor, multiplier: 0.2)
         ])
+    }
+    
+    func configureView(currentManga: Manga?){
+        guard let name = currentManga?.name,
+              let cover = currentManga?.cover,
+              let finalData = Data(base64Encoded: cover ,options: .ignoreUnknownCharacters) else {return}
+        labelForManagName.text = name
+        imageViewForTitle.image = UIImage(data: finalData)
     }
     
     func drawView(){

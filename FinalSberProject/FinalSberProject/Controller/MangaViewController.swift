@@ -10,10 +10,11 @@ import UIKit
 class MangaViewController: UIViewController {
     
     let mangaView = ViewForSelectedManga()
-    let countOfChapters = ["222","223"]
+    var currentManga: Manga? 
 
     override func loadView() {
         super.loadView()
+        mangaView.configureView(currentManga: currentManga)
         view = mangaView
         mangaView.tableView.delegate = self
         mangaView.tableView.dataSource = self
@@ -21,18 +22,23 @@ class MangaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Манга"
+        navigationItem.title = currentManga?.name
     }
 
 }
 
 extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        countOfChapters.count
+        currentManga?.chapters?.count ?? 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChapterOfMangaTableViewCell.identifier, for: indexPath) as! ChapterOfMangaTableViewCell
+        guard let indexManga = currentManga?.chapters?[indexPath.row],
+              let volume = indexManga.volume,
+              let chapter = indexManga.chapter,
+              let name = indexManga.name else { return cell}
+        cell.configureCell(volume: volume, chapter: chapter, nameChapter: name)
         return cell
     }
     

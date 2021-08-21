@@ -8,10 +8,6 @@
 import Foundation
 
 class JSONBuildManagerImp: JsonBuilderManager{
-    func buildJSONForMangaList(completion: @escaping ([Any]) -> ()) {
-        //
-    }
-    
     func buildJSONForMangaPages(completion: @escaping ([Any]) -> ()) {
         //
     }

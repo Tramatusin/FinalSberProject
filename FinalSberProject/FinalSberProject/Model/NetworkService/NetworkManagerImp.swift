@@ -20,14 +20,17 @@ class NetworkManagerImp: NetworkManager{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         for bucket in 1...10{
+            mangaGetGroup.enter()
             guard let postData = try? JSONSerialization.data(withJSONObject: ["batch_num" : bucket], options: []) else {return}
             request.httpBody = postData
-            mangaGetGroup.enter()
             URLSession.shared.dataTask(with: request) { [weak self] data, urlResp, error in
-                guard error == nil else {return}
+                guard error == nil else {
+                    //completion(.failure(error!))
+                    return
+                }
                 
                 guard let dataForJson = data else {return}
-                
+                print(bucket)
                 guard let mangas = self?.parseJson.deserializeMangaData(jsonData: dataForJson) else {return}
                 
                 mangaList += mangas

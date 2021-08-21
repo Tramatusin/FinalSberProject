@@ -10,6 +10,8 @@ import UIKit
 
 class MangaTitleTableViewCell: UITableViewCell{
     
+    var tapOnFavouriteButton: ((UIButton)->())?
+    
     lazy var viewForItems: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -79,10 +81,12 @@ class MangaTitleTableViewCell: UITableViewCell{
     lazy var buttonForFavourite: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark.circle.fill"), for: .normal)
+        button.addTarget(self, action: #selector(didTapOnFavouriteButton), for: .touchUpInside)
         button.imageView?.contentMode = .scaleAspectFit
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        button.tintColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
+        //button.tintColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
+        button.tintColor = .lightGray
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -135,9 +139,17 @@ class MangaTitleTableViewCell: UITableViewCell{
             buttonForFavourite.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -8),
             buttonForFavourite.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor),
             //buttonForFavourite.topAnchor.constraint(equalTo: gradientView.topAnchor),
-            buttonForFavourite.widthAnchor.constraint(equalToConstant: 35),
-            buttonForFavourite.heightAnchor.constraint(equalTo: buttonForFavourite.widthAnchor)
+//            buttonForFavourite.widthAnchor.constraint(equalToConstant: 35),
+//            buttonForFavourite.heightAnchor.constraint(equalTo: buttonForFavourite.widthAnchor)
         ])
+    }
+    
+    func configureCell(name: String, data: Data, tags: [String], chaptersCount: Int, raiting: String){
+        labelOfTitle.text = name
+        imageOfTitle.image = UIImage(data: data)
+        labelOfTags.text = tags.joined(separator: ", ")
+        labelOfCountChapters.text = "\(String(chaptersCount)) глав"
+        labelForRaiting.text = "R: \(raiting) ✭"
     }
     
     func setupCellAndShadow(){
@@ -148,6 +160,10 @@ class MangaTitleTableViewCell: UITableViewCell{
         viewForItems.layer.shadowRadius = 7
         viewForItems.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         viewForItems.layer.shadowPath = UIBezierPath(roundedRect: viewForItems.bounds, cornerRadius: 20).cgPath
+    }
+    
+    @objc func didTapOnFavouriteButton(sender: UIButton){
+        tapOnFavouriteButton?(sender)
     }
     
     override func layoutSubviews() {

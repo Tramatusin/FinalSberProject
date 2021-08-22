@@ -12,13 +12,16 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     var mangaList: [Manga]?
     var manhvaList: [Manga]?
     var manhuyaList: [Manga]?
+    var searchManga: [Manga] = []
     let someView = ViewForListController()
     let nm = NetworkManagerImp()
     
     override func loadView() {
         super.loadView()
         view = someView
-        navigationItem.title = "Онгоинги"
+        //navigationItem.title = "Онгоинги"
+        navigationItem.titleView = someView.searchBar
+        someView.searchBar.delegate = self
         someView.tableView.dataSource = self
         someView.tableView.delegate = self
     }
@@ -59,7 +62,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func load(urlStr: URL,completion: @escaping ([Manga])->()){
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.nm.getMangaList(url: urlStr) { items in
                 switch items{
                 case .failure(let error):
@@ -105,5 +108,18 @@ extension OngoingsViewController{
         let currentMangaVC = MangaViewController()
         currentMangaVC.currentManga = mangaList?[indexPath.row]
         navigationController?.pushViewController(currentMangaVC, animated: true)
+    }
+}
+
+extension OngoingsViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let mangas = mangaList else { return }
+        
+        searchManga = mangas.filter({ item in
+            guard let name = item.name else { return false }
+            return name.lowercased().prefix(searchText.count) == searchText.lowercased()
+        })
+        
+        someView.tableView.reloadData()
     }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class ViewForSelectedManga: UIView {
     
+    var tapOnDecription: (()->())?
+    
     lazy var imageViewForTitle: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "solo.jpg")
@@ -49,6 +51,7 @@ class ViewForSelectedManga: UIView {
         button.setTitle("Описание", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 12)
+        button.addTarget(self, action: #selector(didTapOnDescription), for: .touchUpInside)
         button.sizeToFit()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -118,6 +121,10 @@ class ViewForSelectedManga: UIView {
         super.layoutSubviews()
         backgroundColor = .white
         drawView()
+    }
+    
+    @objc func didTapOnDescription(){
+        tapOnDecription?()
     }
 
 }

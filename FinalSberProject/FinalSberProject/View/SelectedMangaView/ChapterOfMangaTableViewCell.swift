@@ -21,7 +21,7 @@ class ChapterOfMangaTableViewCell: UITableViewCell {
     lazy var viewForGradient: GradientView = {
         let gradView = GradientView()
         gradView.translatesAutoresizingMaskIntoConstraints = false
-        gradView.layer.cornerRadius = 12
+        gradView.layer.cornerRadius = 11
         gradView.clipsToBounds = true
         return gradView
     }()
@@ -59,7 +59,7 @@ class ChapterOfMangaTableViewCell: UITableViewCell {
             shadowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             
             viewForGradient.leftAnchor.constraint(equalTo: shadowView.leftAnchor, constant: 10),
-            viewForGradient.rightAnchor.constraint(equalTo: imageOfCheckRead.leftAnchor, constant: -8),
+            //viewForGradient.rightAnchor.constraint(equalTo: imageOfCheckRead.leftAnchor, constant: -8),
             viewForGradient.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 8),
             viewForGradient.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor, constant: -8),
             
@@ -78,7 +78,8 @@ class ChapterOfMangaTableViewCell: UITableViewCell {
     }
     
     func configureCell(volume: Int, chapter: Double, nameChapter: String){
-        labelForChapter.text = "Том \(volume) Глава \(chapter) \(nameChapter)"
+        //labelForChapter.text = "Том \(volume) Глава \(chapter) \(nameChapter)"
+        labelForChapter.text = "Глава \(chapter)"
     }
     
     func setupShadow(){

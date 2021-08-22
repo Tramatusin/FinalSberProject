@@ -22,7 +22,16 @@ class MangaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTapOnDescrip()
         navigationItem.title = currentManga?.name
+    }
+    
+    func setTapOnDescrip(){
+        mangaView.tapOnDecription = { [weak self] in
+            let descriptionVC = DescriptionViewController()
+            //descriptionVC.descripView.setDataInView(description: self?.currentManga?.description ?? " ")
+            self?.present(descriptionVC, animated: true, completion: nil)
+        }
     }
 
 }

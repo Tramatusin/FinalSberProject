@@ -8,7 +8,7 @@
 import Foundation
 
 class JSONBuildManagerImp: JsonBuilderManager{
-    func buildJSONForMangaPages(completion: @escaping ([Any]) -> ()) {
-        //
+    func buildJSONForMangaPages(code: String, volume: Int, chapter: Double, page: Int)->Data{
+        return Data()
     }
 }

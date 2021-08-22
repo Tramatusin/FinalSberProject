@@ -9,23 +9,33 @@ import Foundation
 
 class JSONParser{
     
-    func deserializeMangaData(jsonData: Data)->[Manga]{
+    func deserializeMangaData(jsonData: Data,completion: @escaping (Result<[Manga],NetworkErrors>)->()){
         let jsonDecoder = JSONDecoder()
-        guard
-            let mangasList = try? jsonDecoder.decode(Mangas.self, from: jsonData),
-            var mangas = mangasList.mangas,
-            let codes = mangasList.codes else {return []}
-        for i in 0..<codes.count{
-            guard let resTag = mangas[i].tags else {return []}
-            let startIn = resTag.startIndex
-            let res = Array(resTag[startIn..<resTag.index(startIn, offsetBy: 3)])
-            mangas[i].tags = res
-            mangas[i].code = codes[i]
-            mangas[i].cover?.removeFirst()
-            mangas[i].cover?.removeFirst()
-            mangas[i].cover?.removeLast()
+        DispatchQueue.global(qos: .userInteractive).async {
+            guard
+                let mangasList = try? jsonDecoder.decode(Mangas.self, from: jsonData),
+                let mangas = mangasList.mangas,
+                let codes = mangasList.codes
+            else {
+                completion(.failure(.warningWithParseJson(message: "Ошибка")))
+                return
+            }
+            for i in 0..<codes.count{
+                guard let resTag = mangas[i].tags
+                else {
+                    completion(.failure(.warningWithParseJson(message: "Ошибка")))
+                    return
+                }
+                let startIn = resTag.startIndex
+                let res = Array(resTag[startIn..<resTag.index(startIn, offsetBy: 3)])
+                mangas[i].tags = res
+                mangas[i].code = codes[i]
+                mangas[i].cover?.removeFirst()
+                mangas[i].cover?.removeFirst()
+                mangas[i].cover?.removeLast()
+            }
+            completion(.success(mangas))
         }
-        return mangas
     }
     
 }

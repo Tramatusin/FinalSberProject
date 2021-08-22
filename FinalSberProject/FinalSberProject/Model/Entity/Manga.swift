@@ -13,7 +13,7 @@ struct Mangas: Decodable {
     var mangas: [Manga]?
 }
 
-struct Manga: Decodable{
+class Manga: Decodable{
     
     var code: String?
     

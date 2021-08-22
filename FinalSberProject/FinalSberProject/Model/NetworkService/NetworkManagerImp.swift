@@ -31,9 +31,15 @@ class NetworkManagerImp: NetworkManager{
                 
                 guard let dataForJson = data else {return}
                 print(bucket)
-                guard let mangas = self?.parseJson.deserializeMangaData(jsonData: dataForJson) else {return}
                 
-                mangaList += mangas
+                self?.parseJson.deserializeMangaData(jsonData: dataForJson, completion: { result in
+                    switch result{
+                    case .failure(let error):
+                        print(error)
+                    case .success(let manga):
+                        mangaList += manga
+                    }
+                })
                 
                 mangaGetGroup.leave()
             }.resume()

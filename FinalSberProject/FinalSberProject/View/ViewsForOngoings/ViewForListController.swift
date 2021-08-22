@@ -22,6 +22,14 @@ class ViewForListController: UIView, UITableViewDelegate{
         return gradView
     }()
     
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Поиск по названию"
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
     lazy var mangaBut: GradientButton = {
         let button = GradientButton()
         button.setTitle("Манга", for: .normal)
@@ -113,5 +121,6 @@ class ViewForListController: UIView, UITableViewDelegate{
     override func layoutSubviews() {
         super.layoutSubviews()
         setupRadius()
+        
     }
 }

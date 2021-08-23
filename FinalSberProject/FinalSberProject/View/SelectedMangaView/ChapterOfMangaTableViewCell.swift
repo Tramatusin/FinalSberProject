@@ -96,6 +96,7 @@ class ChapterOfMangaTableViewCell: UITableViewCell {
         super.layoutSubviews()
         backgroundColor = .white
         setupShadow()
+        selectionStyle = .none
         setupConstraint()
     }
 

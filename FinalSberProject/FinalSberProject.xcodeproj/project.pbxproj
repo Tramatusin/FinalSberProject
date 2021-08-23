@@ -29,6 +29,10 @@
 		5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */; };
 		5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */; };
 		5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */; };
+		5B27FF2F26D3982D00374DD0 /* JsonBuildManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */; };
+		5B27FF3126D39A2200374DD0 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3026D39A2200374DD0 /* ReadViewController.swift */; };
+		5B27FF3426D39B8000374DD0 /* ViewForPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3326D39B8000374DD0 /* ViewForPages.swift */; };
+		5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */; };
 		5B284B2F26CC273B00A44DBF /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */; };
 		5B284B3126CC276400A44DBF /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */; };
 		5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */; };
@@ -81,6 +85,10 @@
 		5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForDescription.swift; sourceTree = "<group>"; };
 		5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBuildManager.swift; sourceTree = "<group>"; };
+		5B27FF3026D39A2200374DD0 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		5B27FF3326D39B8000374DD0 /* ViewForPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForPages.swift; sourceTree = "<group>"; };
+		5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesTableViewCell.swift; sourceTree = "<group>"; };
 		5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Medium.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */,
+				5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */,
 				5B1A9D5726CA8E8C00719B28 /* Entity */,
 				5B1A9D4F26CA702500719B28 /* NetworkService */,
 			);
@@ -180,6 +189,7 @@
 		5B1A9D4926CA6C6500719B28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B27FF3226D39B5C00374DD0 /* ViewForReading */,
 				5B27FF2326CFCA4C00374DD0 /* ViewsForOngoings */,
 				5B27FF2226CFCA0F00374DD0 /* SelectedMangaView */,
 				5B27FF2126CFC9DE00374DD0 /* GradientsView */,
@@ -194,6 +204,7 @@
 				5B1A9D1926CA6C4A00719B28 /* OngoingsViewController.swift */,
 				5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */,
 				5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */,
+				5B27FF3026D39A2200374DD0 /* ReadViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +254,15 @@
 				5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */,
 			);
 			path = ViewsForOngoings;
+			sourceTree = "<group>";
+		};
+		5B27FF3226D39B5C00374DD0 /* ViewForReading */ = {
+			isa = PBXGroup;
+			children = (
+				5B27FF3326D39B8000374DD0 /* ViewForPages.swift */,
+				5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */,
+			);
+			path = ViewForReading;
 			sourceTree = "<group>";
 		};
 		5B284B2D26CC20CC00A44DBF /* Resources */ = {
@@ -391,6 +411,7 @@
 				5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */,
 				5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */,
 				5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */,
+				5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */,
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,
 				5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */,
 				5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */,
@@ -399,12 +420,15 @@
 				5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */,
 				5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */,
 				5B1A9D4C26CA6F8600719B28 /* ViewForListController.swift in Sources */,
+				5B27FF3126D39A2200374DD0 /* ReadViewController.swift in Sources */,
 				5B1A9D5326CA719200719B28 /* JSONBuildManager.swift in Sources */,
 				5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */,
 				5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */,
 				5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */,
+				5B27FF3426D39B8000374DD0 /* ViewForPages.swift in Sources */,
 				5B1A9D1826CA6C4A00719B28 /* SceneDelegate.swift in Sources */,
 				5B27FF2526CFDBDB00374DD0 /* ParseJSON.swift in Sources */,
+				5B27FF2F26D3982D00374DD0 /* JsonBuildManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

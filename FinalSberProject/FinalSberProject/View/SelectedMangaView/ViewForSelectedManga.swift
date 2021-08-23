@@ -84,7 +84,7 @@ class ViewForSelectedManga: UIView {
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            labelForManagName.leftAnchor.constraint(equalTo: viewForItems.leftAnchor, constant: 4),
+            labelForManagName.leftAnchor.constraint(equalTo: viewForItems.leftAnchor, constant: 8),
             labelForManagName.topAnchor.constraint(equalTo: viewForItems.topAnchor, constant: 4),
             labelForManagName.rightAnchor.constraint(equalTo: buttonForFullDescription.leftAnchor, constant: -4),
             labelForManagName.bottomAnchor.constraint(equalTo: viewForItems.bottomAnchor, constant: -4),

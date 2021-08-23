@@ -33,7 +33,7 @@ class Manga: Decodable{
 }
 
 struct Chapters: Decodable {
-    var volume: Int?
+    public var volume: Int?
     var chapter: Double?
     var name: String?
 }

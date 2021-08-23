@@ -16,6 +16,7 @@ class ViewForDescription: UIView{
         label.text = "Описание"
         label.font = UIFont(name: "SFProText-Medium", size: 17)
         label.sizeToFit()
+        label.textColor = .black
         label.textAlignment = .center
         return label
     }()

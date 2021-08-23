@@ -9,4 +9,6 @@ import Foundation
 
 enum NetworkErrors: Error{
     case warningWithParseJson(message: String)
+    case warningResponse(message: String)
+    case warningRequest(message: String)
 }

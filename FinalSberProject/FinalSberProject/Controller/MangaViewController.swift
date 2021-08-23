@@ -29,7 +29,7 @@ class MangaViewController: UIViewController {
     func setTapOnDescrip(){
         mangaView.tapOnDecription = { [weak self] in
             let descriptionVC = DescriptionViewController()
-            //descriptionVC.descripView.setDataInView(description: self?.currentManga?.description ?? " ")
+            descriptionVC.descripView.setDataInView(description: self?.currentManga?.description ?? " ")
             self?.present(descriptionVC, animated: true, completion: nil)
         }
     }
@@ -53,5 +53,13 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedChapter = currentManga?.chapters?[indexPath.row] else { return }
+        let readVC = ReadViewController()
+        readVC.currentManga = currentManga
+        readVC.currentChapter = selectedChapter
+        navigationController?.pushViewController(readVC, animated: true)
     }
 }

@@ -28,7 +28,8 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMangaList()
+//        loadMangaList()
+        loadManhvaList()
     }
     
     func loadMangaList(){
@@ -45,7 +46,8 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let url = URL(string: Urls.manhva.rawValue) else {return}
         load(urlStr: url) {[weak self] manga in
             DispatchQueue.main.async {
-                self?.manhvaList = manga
+                //self?.manhvaList = manga
+                self?.mangaList = manga
                 self?.someView.tableView.reloadData()
             }
         }
@@ -107,6 +109,7 @@ extension OngoingsViewController{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentMangaVC = MangaViewController()
         currentMangaVC.currentManga = mangaList?[indexPath.row]
+        print(mangaList?[indexPath.row].code)
         navigationController?.pushViewController(currentMangaVC, animated: true)
     }
 }

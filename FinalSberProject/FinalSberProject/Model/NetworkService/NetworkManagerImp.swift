@@ -15,31 +15,27 @@ class NetworkManagerImp: NetworkManager{
         var request = URLRequest(url: url)
         let mangaGetGroup = DispatchGroup()
         var mangaList: [Manga] = []
-        var codes: [String] = []
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        for bucket in 1...10{
+        for bucket in 1...3{
             mangaGetGroup.enter()
             guard let postData = buildJson.buildJSONForMangaBucket(bucketNum: bucket) else {return}
             request.httpBody = postData
             URLSession.shared.dataTask(with: request) { [weak self] data, urlResp, error in
                 guard error == nil else {
-                    //completion(.failure(error!))
                     return
                 }
                 
                 guard let dataForJson = data else {return}
                 print(bucket)
-                
                 self?.parseJson.deserializeMangaData(jsonData: dataForJson, completion: { result in
                     switch result{
                     case .failure(let error):
                         print(error)
                     case .success(let manga):
-                        mangaList += manga.0
-                        codes += manga.1
+                        mangaList += manga
                     }
                 })
                 
@@ -48,9 +44,6 @@ class NetworkManagerImp: NetworkManager{
         }
         
         mangaGetGroup.notify(queue: .global()) {
-            for i in 0..<mangaList.count{
-                mangaList[i].code = codes[i]
-            }
             completion(.success(mangaList))
         }
     }

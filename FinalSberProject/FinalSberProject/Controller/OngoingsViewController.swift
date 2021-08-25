@@ -13,6 +13,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     var manhvaList: [Manga]?
     var manhuyaList: [Manga]?
     var searchManga: [Manga] = []
+    let loadingVC = LoadingViewController()
     let someView = ViewForListController()
     let nm = NetworkManagerImp()
     
@@ -29,6 +30,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 //        loadMangaList()
+        displayLoader()
         loadManhvaList()
     }
     
@@ -38,6 +40,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
             DispatchQueue.main.async {
                 self?.mangaList = manga
                 self?.someView.tableView.reloadData()
+                self?.disapearLoader()
             }
         }
     }
@@ -49,6 +52,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
                 //self?.manhvaList = manga
                 self?.mangaList = manga
                 self?.someView.tableView.reloadData()
+                self?.disapearLoader()
             }
         }
     }
@@ -59,6 +63,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
             DispatchQueue.main.async {
                 self?.manhuyaList = manga
                 self?.someView.tableView.reloadData()
+                self?.disapearLoader()
             }
         }
     }
@@ -124,5 +129,31 @@ extension OngoingsViewController: UISearchBarDelegate{
         })
         
         someView.tableView.reloadData()
+    }
+}
+
+extension OngoingsViewController: LoaderManager{
+    func displayLoader() {
+        self.addChild(loadingVC)
+        self.view.addSubview(loadingVC.view)
+        loadingVC.didMove(toParent: self)
+        setupChildViewConstraint()
+    }
+    
+    func disapearLoader() {
+        loadingVC.willMove(toParent: nil)
+        loadingVC.view.removeFromSuperview()
+        loadingVC.removeFromParent()
+    }
+    
+    func setupChildViewConstraint(){
+        loadingVC.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            loadingVC.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+            loadingVC.view.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingVC.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+            loadingVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }

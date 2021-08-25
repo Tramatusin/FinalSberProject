@@ -33,9 +33,9 @@ class PagesTableViewCell: UITableViewCell {
         return label
     }()
     
-    func configureCell(pageData: Data, numberOfPage: Int){
-        imageViewForPage.image = UIImage(data: pageData)
-        labelForNumberPage.text = "Page \(numberOfPage)"
+    func configureCell(pageData: UIImage, numberOfPage: Int){
+        imageViewForPage.image = pageData
+        labelForNumberPage.text = "Page \(numberOfPage+1)"
     }
     
     func setupConstraints(){

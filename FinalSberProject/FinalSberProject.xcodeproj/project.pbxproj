@@ -18,7 +18,7 @@
 		5B1A9D4C26CA6F8600719B28 /* ViewForListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */; };
 		5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */; };
 		5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */; };
-		5B1A9D5326CA719200719B28 /* JSONBuildManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5226CA719200719B28 /* JSONBuildManager.swift */; };
+		5B1A9D5326CA719200719B28 /* JSONBuildManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */; };
 		5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */; };
 		5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* Manga.swift */; };
 		5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */; };
@@ -35,6 +35,8 @@
 		5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */; };
 		5B284B2F26CC273B00A44DBF /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */; };
 		5B284B3126CC276400A44DBF /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */; };
+		5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
+		5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
 		5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */; };
 		5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +76,7 @@
 		5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForListController.swift; sourceTree = "<group>"; };
 		5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImp.swift; sourceTree = "<group>"; };
-		5B1A9D5226CA719200719B28 /* JSONBuildManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBuildManager.swift; sourceTree = "<group>"; };
+		5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBuildManagerImp.swift; sourceTree = "<group>"; };
 		5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTitleTableViewCell.swift; sourceTree = "<group>"; };
 		5B1A9D5826CA8E9F00719B28 /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterOfMangaTableViewCell.swift; sourceTree = "<group>"; };
@@ -85,12 +87,14 @@
 		5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForDescription.swift; sourceTree = "<group>"; };
 		5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
-		5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBuildManager.swift; sourceTree = "<group>"; };
+		5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JsonBuildManager.swift; path = ../JsonBuildManager.swift; sourceTree = "<group>"; };
 		5B27FF3026D39A2200374DD0 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		5B27FF3326D39B8000374DD0 /* ViewForPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForPages.swift; sourceTree = "<group>"; };
 		5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesTableViewCell.swift; sourceTree = "<group>"; };
 		5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Medium.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
+		5B62F41326D5007E007675EB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		5B62F41526D50AAB007675EB /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
 		5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForSelectedManga.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,8 +182,6 @@
 		5B1A9D4826CA6C5E00719B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */,
-				5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */,
 				5B1A9D5726CA8E8C00719B28 /* Entity */,
 				5B1A9D4F26CA702500719B28 /* NetworkService */,
 			);
@@ -205,6 +207,7 @@
 				5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */,
 				5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */,
 				5B27FF3026D39A2200374DD0 /* ReadViewController.swift */,
+				5B62F41326D5007E007675EB /* LoadingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,8 +215,11 @@
 		5B1A9D4F26CA702500719B28 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */,
+				5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */,
+				5B62F41526D50AAB007675EB /* LoaderManager.swift */,
 				5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */,
-				5B1A9D5226CA719200719B28 /* JSONBuildManager.swift */,
+				5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */,
 				5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */,
 			);
 			path = NetworkService;
@@ -411,7 +417,9 @@
 				5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */,
 				5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */,
 				5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */,
+				5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */,
 				5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */,
+				5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */,
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,
 				5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */,
 				5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */,
@@ -421,7 +429,7 @@
 				5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */,
 				5B1A9D4C26CA6F8600719B28 /* ViewForListController.swift in Sources */,
 				5B27FF3126D39A2200374DD0 /* ReadViewController.swift in Sources */,
-				5B1A9D5326CA719200719B28 /* JSONBuildManager.swift in Sources */,
+				5B1A9D5326CA719200719B28 /* JSONBuildManagerImp.swift in Sources */,
 				5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */,
 				5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */,
 				5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */,

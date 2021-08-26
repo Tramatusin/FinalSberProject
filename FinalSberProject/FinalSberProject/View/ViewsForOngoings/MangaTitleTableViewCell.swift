@@ -12,6 +12,8 @@ class MangaTitleTableViewCell: UITableViewCell{
     
     var tapOnFavouriteButton: ((UIButton)->())?
     
+    static let id = "mangaCell"
+    
     lazy var viewForItems: UIView = {
         let view = UIView()
         view.backgroundColor = .white

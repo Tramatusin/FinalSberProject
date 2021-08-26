@@ -14,12 +14,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         let viewController = OngoingsViewController()
-        viewController.view.backgroundColor = .white
-        let navController = UINavigationController(rootViewController: viewController)
+        viewController.title = "Ongoings"
+        
+        let favoriteViewController = FavoriteViewController()
+        favoriteViewController.title = "Favorites"
+        
+        let navControllerOng = UINavigationController(rootViewController: viewController)
+        let navControllerFav = UINavigationController(rootViewController: favoriteViewController)
+        
+        let tabBarVC = UITabBarController()
+        tabBarVC.viewControllers = [navControllerOng,navControllerFav]
+        
+        guard let tabBarItems = tabBarVC.tabBar.items,
+              let imageForOng = UIImage(systemName: "house.fill"),
+              let imageForFav = UIImage(systemName: "bookmark.circle.fill") else { return }
+        
+        tabBarItems[0].image = imageForOng
+        tabBarItems[1].image = imageForFav
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = navController
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
     }
 

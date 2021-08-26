@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol JsonBuilderManager {
+protocol JsonBuilderManagerProtocol {
     func buildJSONForMangaPages(code: String, volume: Int, chapter: Double, page: Int)->Data?
     func buildJSONForMangaBucket(bucketNum: Int)->Data?
 }

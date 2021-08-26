@@ -16,7 +16,7 @@
 		5B1A9D3026CA6C4B00719B28 /* FinalSberProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D2F26CA6C4B00719B28 /* FinalSberProjectTests.swift */; };
 		5B1A9D3B26CA6C4B00719B28 /* FinalSberProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D3A26CA6C4B00719B28 /* FinalSberProjectUITests.swift */; };
 		5B1A9D4C26CA6F8600719B28 /* ViewForListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */; };
-		5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */; };
+		5B1A9D4E26CA6FDA00719B28 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D4D26CA6FDA00719B28 /* NetworkManagerProtocol.swift */; };
 		5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */; };
 		5B1A9D5326CA719200719B28 /* JSONBuildManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */; };
 		5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */; };
@@ -36,7 +36,8 @@
 		5B284B2F26CC273B00A44DBF /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */; };
 		5B284B3126CC276400A44DBF /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */; };
 		5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
-		5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
+		5B62F41626D50AAB007675EB /* LoaderManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManagerProtocol.swift */; };
+		5B62F41926D694AF007675EB /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41826D694AF007675EB /* FavoriteViewController.swift */; };
 		5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */; };
 		5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +75,7 @@
 		5B1A9D3A26CA6C4B00719B28 /* FinalSberProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSberProjectUITests.swift; sourceTree = "<group>"; };
 		5B1A9D3C26CA6C4B00719B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForListController.swift; sourceTree = "<group>"; };
-		5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5B1A9D4D26CA6FDA00719B28 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImp.swift; sourceTree = "<group>"; };
 		5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBuildManagerImp.swift; sourceTree = "<group>"; };
 		5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,7 +95,8 @@
 		5B284B2E26CC273B00A44DBF /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Medium.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		5B62F41326D5007E007675EB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		5B62F41526D50AAB007675EB /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
+		5B62F41526D50AAB007675EB /* LoaderManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManagerProtocol.swift; sourceTree = "<group>"; };
+		5B62F41826D694AF007675EB /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
 		5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForSelectedManga.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,9 +193,9 @@
 		5B1A9D4926CA6C6500719B28 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5B27FF3226D39B5C00374DD0 /* ViewForReading */,
 				5B27FF2326CFCA4C00374DD0 /* ViewsForOngoings */,
 				5B27FF2226CFCA0F00374DD0 /* SelectedMangaView */,
+				5B27FF3226D39B5C00374DD0 /* ViewForReading */,
 				5B27FF2126CFC9DE00374DD0 /* GradientsView */,
 				5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */,
 			);
@@ -208,6 +210,7 @@
 				5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */,
 				5B27FF3026D39A2200374DD0 /* ReadViewController.swift */,
 				5B62F41326D5007E007675EB /* LoadingViewController.swift */,
+				5B62F41826D694AF007675EB /* FavoriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,9 +218,9 @@
 		5B1A9D4F26CA702500719B28 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */,
+				5B1A9D4D26CA6FDA00719B28 /* NetworkManagerProtocol.swift */,
 				5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */,
-				5B62F41526D50AAB007675EB /* LoaderManager.swift */,
+				5B62F41526D50AAB007675EB /* LoaderManagerProtocol.swift */,
 				5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */,
 				5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */,
 				5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */,
@@ -411,13 +414,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */,
+				5B1A9D4E26CA6FDA00719B28 /* NetworkManagerProtocol.swift in Sources */,
 				5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */,
 				5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */,
 				5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */,
+				5B62F41926D694AF007675EB /* FavoriteViewController.swift in Sources */,
 				5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */,
 				5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */,
-				5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */,
+				5B62F41626D50AAB007675EB /* LoaderManagerProtocol.swift in Sources */,
 				5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */,
 				5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */,
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,

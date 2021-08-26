@@ -59,7 +59,7 @@ class ViewForListController: UIView, UITableViewDelegate{
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(MangaTitleTableViewCell.self, forCellReuseIdentifier: "mangaCell")
+        tableView.register(MangaTitleTableViewCell.self, forCellReuseIdentifier: MangaTitleTableViewCell.id)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +69,7 @@ class ViewForListController: UIView, UITableViewDelegate{
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraint()
+        backgroundColor = .white
     }
     
     func setupConstraint(){

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoaderManager {
+protocol LoaderManagerProtocol {
     func displayLoader()
     func disapearLoader()
     func setupChildViewConstraint()

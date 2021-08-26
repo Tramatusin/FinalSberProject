@@ -7,9 +7,13 @@
 
 import Foundation
 
-protocol NetworkManager {
+protocol NetworkManagerProtocol {
     func getMangaList(url: URL,completion: @escaping (Result<[Manga],NetworkErrors>)->())
     
     func getPagesList(code: String,chapterManga: Chapters,url: URL, completion: @escaping (Result<[Data],NetworkErrors>)->())
 }
+
+//protocol <#name#> {
+//    <#requirements#>
+//}
 

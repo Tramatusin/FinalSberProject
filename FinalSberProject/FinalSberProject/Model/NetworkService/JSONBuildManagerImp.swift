@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JSONBuildManagerImp: JsonBuilderManager{
+class JSONBuildManagerImp: JsonBuilderManagerProtocol{
     func buildJSONForMangaBucket(bucketNum: Int) -> Data? {
         let json: [String: Any] =
             ["batch_num" : bucketNum]

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkManagerImp: NetworkManager{
+class NetworkManagerImp: NetworkManagerProtocol{
     let parseJson = JSONParser()
     let buildJson = JSONBuildManagerImp()
     
@@ -18,6 +18,8 @@ class NetworkManagerImp: NetworkManager{
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //func(request:,completion)
         
         for bucket in 1...3{
             mangaGetGroup.enter()

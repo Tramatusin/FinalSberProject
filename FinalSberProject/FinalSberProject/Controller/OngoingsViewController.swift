@@ -81,6 +81,10 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    var tapOnFavButtonClousure:(UIButton)->() = { button in
+        
+    }
+    
 }
 
 extension OngoingsViewController{
@@ -132,7 +136,7 @@ extension OngoingsViewController: UISearchBarDelegate{
     }
 }
 
-extension OngoingsViewController: LoaderManager{
+extension OngoingsViewController: LoaderManagerProtocol{
     func displayLoader() {
         self.addChild(loadingVC)
         self.view.addSubview(loadingVC.view)

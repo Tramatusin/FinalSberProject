@@ -77,7 +77,7 @@ extension ReadViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
-extension ReadViewController: LoaderManager{
+extension ReadViewController: LoaderManagerProtocol{
     
     func displayLoader() {
         self.addChild(loadingVC)

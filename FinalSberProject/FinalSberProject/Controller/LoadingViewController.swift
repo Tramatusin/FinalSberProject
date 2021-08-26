@@ -14,6 +14,20 @@ class LoadingViewController: UIViewController {
         UIImage(named: "3.png"),UIImage(named: "4.png"),UIImage(named: "5.png"),
         UIImage(named: "6.png"),UIImage(named: "7.png"),UIImage(named: "8.png"),
         UIImage(named: "9.png"),UIImage(named: "10.png")]
+    
+    lazy var labelForwWarning: UILabel = {
+        let label = UILabel()
+        label.text = "Если вы впервые загружаете главу, это может происходить долго, извините 🥺"
+        label.textAlignment = .center
+        label.isHidden = true
+        label.font = UIFont(name: "SFProText-Medium", size: 14)
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 0
+        label.sizeToFit()
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     lazy var imageOfAnimation: UIImageView = {
         let imageView = UIImageView()
@@ -24,25 +38,35 @@ class LoadingViewController: UIViewController {
         return imageView
     }()
     
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+//    lazy var label: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(imageOfAnimation)
-        setupAnimation()
         setupConst()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupAnimation()
     }
     
     func setupConst(){
         view.addSubview(imageOfAnimation)
+        view.addSubview(labelForwWarning)
         
-        imageOfAnimation.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageOfAnimation.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            imageOfAnimation.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageOfAnimation.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            labelForwWarning.leftAnchor.constraint(equalTo: view.leftAnchor),
+            labelForwWarning.rightAnchor.constraint(equalTo: view.rightAnchor),
+            labelForwWarning.topAnchor.constraint(equalTo: imageOfAnimation.bottomAnchor, constant: 6),
+            //labelForwWarning.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor)
+        ])
     }
     
     func setupAnimation(){

@@ -51,6 +51,7 @@ class ViewForSelectedManga: UIView {
         button.setTitle("Описание", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 14)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.addTarget(self, action: #selector(didTapOnDescription), for: .touchUpInside)
         button.sizeToFit()
         button.translatesAutoresizingMaskIntoConstraints = false

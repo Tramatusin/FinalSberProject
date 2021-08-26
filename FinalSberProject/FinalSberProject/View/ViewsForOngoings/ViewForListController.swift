@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 class ViewForListController: UIView, UITableViewDelegate{
+    
+    var tapOnManhvaBut: (()->())?
+    var tapOnMangaBut: (()->())?
+    var tapOnManhuyaBut: (()->())?
 
     lazy var viewForSegmentControl: UIView = {
         let view = UIView()
@@ -34,7 +38,8 @@ class ViewForListController: UIView, UITableViewDelegate{
         let button = GradientButton()
         button.setTitle("Манга", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 14)
+        button.titleLabel?.font = UIFont(name: "SFProText-Light", size: 14)
+        button.addTarget(self, action: #selector(didTapOnMangaBut), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -43,7 +48,8 @@ class ViewForListController: UIView, UITableViewDelegate{
         let button = GradientButton()
         button.setTitle("Манхва", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 14)
+        button.titleLabel?.font = UIFont(name: "SFProText-Light", size: 14)
+        button.addTarget(self, action: #selector(didTapOnManhvaBut), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -52,7 +58,8 @@ class ViewForListController: UIView, UITableViewDelegate{
         let button = GradientButton()
         button.setTitle("Маньхуа", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 14)
+        button.titleLabel?.font = UIFont(name: "SFProText-Light", size: 14)
+        button.addTarget(self, action: #selector(didTapOnManhuyaBut), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -69,6 +76,7 @@ class ViewForListController: UIView, UITableViewDelegate{
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraint()
+        setupRadius()
     }
     
     func setupConstraint(){
@@ -114,13 +122,23 @@ class ViewForListController: UIView, UITableViewDelegate{
         manhuyaBut.layer.cornerRadius = 8
     }
     
+    @objc func didTapOnMangaBut(){
+        tapOnMangaBut?()
+    }
+    
+    @objc func didTapOnManhvaBut(){
+        tapOnManhvaBut?()
+    }
+    
+    @objc func didTapOnManhuyaBut(){
+        tapOnManhuyaBut?()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupRadius()
-        
     }
 }

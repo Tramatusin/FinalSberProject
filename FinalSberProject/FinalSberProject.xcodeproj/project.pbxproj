@@ -25,7 +25,6 @@
 		5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */; };
 		5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */; };
 		5B27FF2526CFDBDB00374DD0 /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */; };
-		5B27FF2726D0048600374DD0 /* URL's.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2626D0048600374DD0 /* URL's.swift */; };
 		5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */; };
 		5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */; };
 		5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */; };
@@ -37,6 +36,9 @@
 		5B284B3126CC276400A44DBF /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */; };
 		5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
 		5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
+		5B62F41B26D7A052007675EB /* TypeOngoings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41A26D7A052007675EB /* TypeOngoings.swift */; };
+		5B62F41E26D7CAAC007675EB /* UserDefautlsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41D26D7CAAC007675EB /* UserDefautlsProtocol.swift */; };
+		5B62F42026D7CAC2007675EB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */; };
 		5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */; };
 		5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */; };
 /* End PBXBuildFile section */
@@ -83,7 +85,6 @@
 		5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
-		5B27FF2626D0048600374DD0 /* URL's.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL's.swift"; sourceTree = "<group>"; };
 		5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForDescription.swift; sourceTree = "<group>"; };
 		5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
@@ -95,6 +96,9 @@
 		5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Light.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		5B62F41326D5007E007675EB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5B62F41526D50AAB007675EB /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
+		5B62F41A26D7A052007675EB /* TypeOngoings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOngoings.swift; sourceTree = "<group>"; };
+		5B62F41D26D7CAAC007675EB /* UserDefautlsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsProtocol.swift; sourceTree = "<group>"; };
+		5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
 		5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForSelectedManga.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +186,7 @@
 		5B1A9D4826CA6C5E00719B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B62F41C26D7CA91007675EB /* UserDefautsService */,
 				5B1A9D5726CA8E8C00719B28 /* Entity */,
 				5B1A9D4F26CA702500719B28 /* NetworkService */,
 			);
@@ -229,8 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				5B1A9D5826CA8E9F00719B28 /* Manga.swift */,
-				5B27FF2626D0048600374DD0 /* URL's.swift */,
 				5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */,
+				5B62F41A26D7A052007675EB /* TypeOngoings.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -278,6 +283,15 @@
 				5B284B3026CC276400A44DBF /* SF-Pro-Text-Light.otf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5B62F41C26D7CA91007675EB /* UserDefautsService */ = {
+			isa = PBXGroup;
+			children = (
+				5B62F41D26D7CAAC007675EB /* UserDefautlsProtocol.swift */,
+				5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */,
+			);
+			path = UserDefautsService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +427,7 @@
 			files = (
 				5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */,
 				5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */,
+				5B62F41E26D7CAAC007675EB /* UserDefautlsProtocol.swift in Sources */,
 				5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */,
 				5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */,
 				5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */,
@@ -423,15 +438,16 @@
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,
 				5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */,
 				5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */,
-				5B27FF2726D0048600374DD0 /* URL's.swift in Sources */,
 				5B1A9D2026CA6C4A00719B28 /* FinalSberProject.xcdatamodeld in Sources */,
 				5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */,
 				5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */,
 				5B1A9D4C26CA6F8600719B28 /* ViewForListController.swift in Sources */,
+				5B62F41B26D7A052007675EB /* TypeOngoings.swift in Sources */,
 				5B27FF3126D39A2200374DD0 /* ReadViewController.swift in Sources */,
 				5B1A9D5326CA719200719B28 /* JSONBuildManagerImp.swift in Sources */,
 				5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */,
 				5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */,
+				5B62F42026D7CAC2007675EB /* UserDefaultsManager.swift in Sources */,
 				5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */,
 				5B27FF3426D39B8000374DD0 /* ViewForPages.swift in Sources */,
 				5B1A9D1826CA6C4A00719B28 /* SceneDelegate.swift in Sources */,

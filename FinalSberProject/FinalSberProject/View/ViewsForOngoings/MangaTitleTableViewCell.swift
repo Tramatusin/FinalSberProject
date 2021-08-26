@@ -10,7 +10,7 @@ import UIKit
 
 class MangaTitleTableViewCell: UITableViewCell{
     
-    var tapOnFavouriteButton: ((UIButton)->())?
+//    var tapOnFavouriteButton: ((UIButton)->())?
     
     lazy var viewForItems: UIView = {
         let view = UIView()
@@ -70,7 +70,7 @@ class MangaTitleTableViewCell: UITableViewCell{
     
     lazy var labelForRaiting: UILabel = {
         let label = UILabel()
-        label.textColor = .systemYellow
+        label.textColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
         label.text = "R: 4.39 ✭"
         label.textAlignment = .right
         label.font = UIFont(name: "SFProText-Light", size: 12)
@@ -78,17 +78,15 @@ class MangaTitleTableViewCell: UITableViewCell{
         return label
     }()
     
-    lazy var buttonForFavourite: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "bookmark.circle.fill"), for: .normal)
-        button.addTarget(self, action: #selector(didTapOnFavouriteButton), for: .touchUpInside)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
-        //button.tintColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
-        button.tintColor = .lightGray
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    lazy var buttonForFavourite: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "bookmark.circle.fill")
+        imageView.contentMode = .scaleAspectFit
+//        imageView.contentVerticalAlignment = .fill
+//        imageView.contentHorizontalAlignment = .fill
+        imageView.tintColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     func setupConstraint(){
@@ -139,8 +137,8 @@ class MangaTitleTableViewCell: UITableViewCell{
             buttonForFavourite.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -8),
             buttonForFavourite.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor),
             //buttonForFavourite.topAnchor.constraint(equalTo: gradientView.topAnchor),
-//            buttonForFavourite.widthAnchor.constraint(equalToConstant: 35),
-//            buttonForFavourite.heightAnchor.constraint(equalTo: buttonForFavourite.widthAnchor)
+            buttonForFavourite.widthAnchor.constraint(equalToConstant: 35),
+            buttonForFavourite.heightAnchor.constraint(equalTo: buttonForFavourite.widthAnchor)
         ])
     }
     
@@ -162,9 +160,9 @@ class MangaTitleTableViewCell: UITableViewCell{
         viewForItems.layer.shadowPath = UIBezierPath(roundedRect: viewForItems.bounds, cornerRadius: 20).cgPath
     }
     
-    @objc func didTapOnFavouriteButton(sender: UIButton){
-        tapOnFavouriteButton?(sender)
-    }
+//    @objc func didTapOnFavouriteButton(sender: UIButton){
+//        tapOnFavouriteButton?(sender)
+//    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

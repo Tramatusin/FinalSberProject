@@ -1,15 +1,14 @@
 //
-//  URL's.swift
+//  TypeOngoings.swift
 //  FinalSberProject
 //
-//  Created by Виктор Поволоцкий on 20.08.2021.
+//  Created by Виктор Поволоцкий on 26.08.2021.
 //
 
 import Foundation
 
-enum Urls: String{
+enum TypeOngoings: String, Codable{
     case manhva = "http://hsemanga.ddns.net:7000/catalogues/manhva/"
     case manga = "http://hsemanga.ddns.net:7000/catalogues/manga/"
     case manhuya = "http://hsemanga.ddns.net:7000/catalogues/manhya/"
-    case mangaChapter = "http://hsemanga.ddns.net:7000/getmanga/chapter/"
 }

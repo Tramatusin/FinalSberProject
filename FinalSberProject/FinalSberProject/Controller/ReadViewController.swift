@@ -11,6 +11,7 @@ class ReadViewController: UIViewController {
     
     var currentManga: Manga?
     var currentChapter: Chapters?
+    let urlForPage = "http://hsemanga.ddns.net:7000/getmanga/chapter/"
     var pages: [Data]?
     let readView = ViewForPages()
     let loadingVC = LoadingViewController()
@@ -20,6 +21,7 @@ class ReadViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = readView
+        loadingVC.labelForwWarning.isHidden = false
         readView.tableViewForPages.delegate = self
         readView.tableViewForPages.dataSource = self
     }
@@ -33,7 +35,7 @@ class ReadViewController: UIViewController {
     func loadPages(){
         guard let code = currentManga?.code,
               let chapter = currentChapter,
-              let url = URL(string:Urls.mangaChapter.rawValue) else { return }
+              let url = URL(string: urlForPage) else { return }
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.networkManager.getPagesList(code: code, chapterManga: chapter, url: url) { result in
                 switch result{

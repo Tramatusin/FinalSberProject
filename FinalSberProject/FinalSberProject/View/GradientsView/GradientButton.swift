@@ -40,4 +40,8 @@ class GradientButton: UIButton {
         setupGradient()
     }
     
+    override func setNeedsLayout() {
+        super.setNeedsLayout()
+    }
+    
 }

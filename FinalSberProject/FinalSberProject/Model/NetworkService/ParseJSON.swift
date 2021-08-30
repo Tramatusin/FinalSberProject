@@ -9,7 +9,7 @@ import Foundation
 
 class JSONParser{
     
-    func deserializeMangaData(jsonData: Data,completion: @escaping (Result<[Manga],NetworkErrors>)->()){
+    func deserializeMangaData(jsonData: Data,completion: @escaping (Result<[NetManga],NetworkErrors>)->()){
         let jsonDecoder = JSONDecoder()
         guard
             let mangasList = try? jsonDecoder.decode(Mangas.self, from: jsonData),

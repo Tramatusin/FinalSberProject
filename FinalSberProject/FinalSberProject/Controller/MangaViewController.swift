@@ -10,7 +10,7 @@ import UIKit
 class MangaViewController: UIViewController {
     
     let mangaView = ViewForSelectedManga()
-    var currentManga: Manga? 
+    var currentManga: NetManga? 
 
     override func loadView() {
         super.loadView()

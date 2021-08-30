@@ -102,7 +102,7 @@ class ViewForSelectedManga: UIView {
         ])
     }
     
-    func configureView(currentManga: Manga?){
+    func configureView(currentManga: NetManga?){
         guard let name = currentManga?.name,
               let cover = currentManga?.cover,
               let finalData = Data(base64Encoded: cover ,options: .ignoreUnknownCharacters) else {return}

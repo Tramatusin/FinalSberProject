@@ -9,15 +9,16 @@ import UIKit
 
 class OngoingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var mangaList: [Manga] = []
-    var manhvaList: [Manga] = []
-    var manhuyaList: [Manga] = []
+    var mangaList: [NetManga] = []
+    var manhvaList: [NetManga] = []
+    var manhuyaList: [NetManga] = []
     var ongoingPageType: TypeOngoings = .manhva
-    var searchManga: [Manga] = []
+    var searchManga: [NetManga] = []
     let loadingVC = LoadingViewController()
     let someView = ViewForListController()
     let nm = NetworkManagerImp()
     let userDef = UserDefaultsManager()
+    let coreDataManager = CoreDataManagerImp()
     
     override func loadView() {
         super.loadView()
@@ -31,9 +32,12 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad(){
         super.viewDidLoad()
         checkUserDefaults()
+        //coreDataManager.clearObjects()
+        coreDataManager.printDataBase()
         displayLoader()
         setCurrentMangaListAfterButtonTap(pageType: ongoingPageType, listOfOngoing: setMangaList())
         tapOnButtons()
+        
     }
     
     func tapOnButtons(){
@@ -62,18 +66,19 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func setCurrentMangaListAfterButtonTap(pageType: TypeOngoings, listOfOngoing: [Manga]){
+    func setCurrentMangaListAfterButtonTap(pageType: TypeOngoings, listOfOngoing: [NetManga]){
         self.ongoingPageType = pageType
         userDef.setDataInUserDefaults(pageType: pageType, key: "type")
         if listOfOngoing.isEmpty{
             self.displayLoader()
             load(urlStr: pageType.rawValue)
+            //load(urlStr: "www.google.com")
             return
         }
         self.someView.tableView.reloadData()
     }
     
-    func setMangaList()->[Manga]{
+    func setMangaList()->[NetManga]{
         switch ongoingPageType {
         case .manga:
             return mangaList
@@ -108,17 +113,30 @@ extension OngoingsViewController{
             self?.nm.getMangaList(url: url) { items in
                 switch items{
                 case .failure(let error):
+                    guard let resManga = self?.coreDataManager.castLocalMangaToNetManga()
+                    else { return }
+                    self?.mangaList = resManga
+                    self?.ongoingPageType = .manga
+                    DispatchQueue.main.async {
+                        self?.someView.manhvaBut.isHidden = true
+                        self?.someView.manhuyaBut.isHidden = true
+                        self?.someView.mangaBut.setTitle("Офлайн", for: .normal)
+                    }
+                    self?.endLoad()
                     print(error)
                 case .success(let manga):
                     switch self?.ongoingPageType {
                     case .manga:
                         self?.mangaList = manga
+                        self?.setDataInCoreData(mangas: manga)
                         self?.endLoad()
                     case .manhva:
                         self?.manhvaList = manga
+                        self?.setDataInCoreData(mangas: manga)
                         self?.endLoad()
                     case .manhuya:
                         self?.manhuyaList = manga
+                        self?.setDataInCoreData(mangas: manga)
                         self?.endLoad()
                     case .none:
                         return
@@ -135,6 +153,10 @@ extension OngoingsViewController{
         }
     }
     
+    func setDataInCoreData(mangas: [NetManga]){
+        mangas.forEach({ coreDataManager.writeObject(manga: $0) })
+    }
+    
 }
 
 extension OngoingsViewController{
@@ -144,13 +166,14 @@ extension OngoingsViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath) as! MangaTitleTableViewCell
-        let curMangaList: [Manga] = setMangaList()
+        let curMangaList: [NetManga] = setMangaList()
         
         guard let dataImageStr = curMangaList[indexPath.row].cover,
               let finalData = Data(base64Encoded: dataImageStr, options: .ignoreUnknownCharacters),
               let nameOfTitle = curMangaList[indexPath.row].name,
               let tags = curMangaList[indexPath.row].tags,
-              let chaptesCount = curMangaList[indexPath.row].chapters?.count,
+              let chaptesCount =
+                curMangaList[indexPath.row].chapters?.count != 0 ? curMangaList[indexPath.row].chapters?.count : curMangaList[indexPath.row].countChapter,
               let raiting = curMangaList[indexPath.row].rating_value else {return cell}
         cell.configureCell(name: nameOfTitle, data: finalData, tags: tags, chaptersCount: chaptesCount, raiting: raiting)
         return cell

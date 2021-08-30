@@ -9,7 +9,7 @@ import UIKit
 
 class ReadViewController: UIViewController {
     
-    var currentManga: Manga?
+    var currentManga: NetManga?
     var currentChapter: Chapters?
     let urlForPage = "http://hsemanga.ddns.net:7000/getmanga/chapter/"
     var pages: [Data]?

@@ -10,10 +10,10 @@ import Foundation
 struct Mangas: Decodable {
     var codes: [String]?
     
-    var mangas: [Manga]?
+    var mangas: [NetManga]?
 }
 
-class Manga: Decodable{
+class NetManga: Decodable{
     
     var code: String?
     
@@ -29,7 +29,19 @@ class Manga: Decodable{
     
     var rating_count: String?
     
-    var chapters: [Chapters]?
+    var chapters: [Chapters]? = []
+    
+    var countChapter: Int?
+    
+    init(name: String,code: String, description: String, tags: [String], cover: String, raiting: String, chapterCount: Int) {
+        self.name = name
+        self.code = code
+        self.description = description
+        self.tags = tags
+        self.cover = cover
+        self.rating_value = raiting
+        self.countChapter = chapterCount
+    }
 }
 
 struct Chapters: Decodable {

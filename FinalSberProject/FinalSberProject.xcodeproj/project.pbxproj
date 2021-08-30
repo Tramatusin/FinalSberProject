@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B062E6726DB9DCA0042F123 /* Manga+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B062E6526DB9DCA0042F123 /* Manga+CoreDataClass.swift */; };
+		5B062E6826DB9DCA0042F123 /* Manga+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B062E6626DB9DCA0042F123 /* Manga+CoreDataProperties.swift */; };
+		5B062E6C26DB9EC60042F123 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B062E6B26DB9EC60042F123 /* CoreDataManager.swift */; };
+		5B062E6E26DBA8D50042F123 /* CoreDataManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B062E6D26DBA8D50042F123 /* CoreDataManagerImp.swift */; };
+		5B062E7026DBAA520042F123 /* CoreDataPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B062E6F26DBAA520042F123 /* CoreDataPersistentContainer.swift */; };
 		5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D1526CA6C4A00719B28 /* AppDelegate.swift */; };
 		5B1A9D1826CA6C4A00719B28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D1726CA6C4A00719B28 /* SceneDelegate.swift */; };
 		5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D1926CA6C4A00719B28 /* OngoingsViewController.swift */; };
@@ -20,7 +25,7 @@
 		5B1A9D5126CA705400719B28 /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */; };
 		5B1A9D5326CA719200719B28 /* JSONBuildManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */; };
 		5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */; };
-		5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* Manga.swift */; };
+		5B1A9D5926CA8E9F00719B28 /* NetManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* NetManga.swift */; };
 		5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */; };
 		5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */; };
 		5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */; };
@@ -61,6 +66,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B062E6526DB9DCA0042F123 /* Manga+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manga+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B062E6626DB9DCA0042F123 /* Manga+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manga+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B062E6B26DB9EC60042F123 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5B062E6D26DBA8D50042F123 /* CoreDataManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerImp.swift; sourceTree = "<group>"; };
+		5B062E6F26DBAA520042F123 /* CoreDataPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainer.swift; sourceTree = "<group>"; };
 		5B1A9D1226CA6C4A00719B28 /* FinalSberProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalSberProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1A9D1526CA6C4A00719B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B1A9D1726CA6C4A00719B28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +90,7 @@
 		5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImp.swift; sourceTree = "<group>"; };
 		5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBuildManagerImp.swift; sourceTree = "<group>"; };
 		5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTitleTableViewCell.swift; sourceTree = "<group>"; };
-		5B1A9D5826CA8E9F00719B28 /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
+		5B1A9D5826CA8E9F00719B28 /* NetManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetManga.swift; sourceTree = "<group>"; };
 		5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterOfMangaTableViewCell.swift; sourceTree = "<group>"; };
 		5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
@@ -128,6 +138,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B062E6926DB9E4B0042F123 /* CoreDataExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				5B062E6526DB9DCA0042F123 /* Manga+CoreDataClass.swift */,
+				5B062E6626DB9DCA0042F123 /* Manga+CoreDataProperties.swift */,
+			);
+			path = CoreDataExtensions;
+			sourceTree = "<group>";
+		};
+		5B062E6A26DB9E8B0042F123 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				5B062E6B26DB9EC60042F123 /* CoreDataManager.swift */,
+				5B062E6D26DBA8D50042F123 /* CoreDataManagerImp.swift */,
+				5B062E6F26DBAA520042F123 /* CoreDataPersistentContainer.swift */,
+			);
+			path = CoreDataService;
+			sourceTree = "<group>";
+		};
 		5B1A9D0926CA6C4A00719B28 = {
 			isa = PBXGroup;
 			children = (
@@ -186,8 +215,9 @@
 		5B1A9D4826CA6C5E00719B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B62F41C26D7CA91007675EB /* UserDefautsService */,
+				5B062E6A26DB9E8B0042F123 /* CoreDataService */,
 				5B1A9D5726CA8E8C00719B28 /* Entity */,
+				5B62F41C26D7CA91007675EB /* UserDefautsService */,
 				5B1A9D4F26CA702500719B28 /* NetworkService */,
 			);
 			path = Model;
@@ -233,7 +263,8 @@
 		5B1A9D5726CA8E8C00719B28 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				5B1A9D5826CA8E9F00719B28 /* Manga.swift */,
+				5B062E6926DB9E4B0042F123 /* CoreDataExtensions */,
+				5B1A9D5826CA8E9F00719B28 /* NetManga.swift */,
 				5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */,
 				5B62F41A26D7A052007675EB /* TypeOngoings.swift */,
 			);
@@ -428,13 +459,16 @@
 				5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */,
 				5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */,
 				5B62F41E26D7CAAC007675EB /* UserDefautlsProtocol.swift in Sources */,
+				5B062E6726DB9DCA0042F123 /* Manga+CoreDataClass.swift in Sources */,
 				5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */,
-				5B1A9D5926CA8E9F00719B28 /* Manga.swift in Sources */,
+				5B1A9D5926CA8E9F00719B28 /* NetManga.swift in Sources */,
 				5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */,
 				5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */,
 				5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */,
 				5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */,
+				5B062E7026DBAA520042F123 /* CoreDataPersistentContainer.swift in Sources */,
 				5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */,
+				5B062E6C26DB9EC60042F123 /* CoreDataManager.swift in Sources */,
 				5B1A9D5626CA7A0000719B28 /* MangaTitleTableViewCell.swift in Sources */,
 				5BD5D5DC26CD4ACC009DED79 /* ViewForSelectedManga.swift in Sources */,
 				5B1A9D1626CA6C4A00719B28 /* AppDelegate.swift in Sources */,
@@ -446,6 +480,8 @@
 				5B27FF3126D39A2200374DD0 /* ReadViewController.swift in Sources */,
 				5B1A9D5326CA719200719B28 /* JSONBuildManagerImp.swift in Sources */,
 				5BD5D5DA26CD4A80009DED79 /* MangaViewController.swift in Sources */,
+				5B062E6E26DBA8D50042F123 /* CoreDataManagerImp.swift in Sources */,
+				5B062E6826DB9DCA0042F123 /* Manga+CoreDataProperties.swift in Sources */,
 				5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */,
 				5B62F42026D7CAC2007675EB /* UserDefaultsManager.swift in Sources */,
 				5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */,

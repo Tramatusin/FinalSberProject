@@ -11,10 +11,10 @@ class NetworkManagerImp: NetworkManager{
     let parseJson = JSONParser()
     let buildJson = JSONBuildManagerImp()
     
-    func getMangaList(url: URL,completion: @escaping (Result<[Manga],NetworkErrors>) -> ()) {
+    func getMangaList(url: URL,completion: @escaping (Result<[NetManga],NetworkErrors>) -> ()) {
         var request = URLRequest(url: url)
         let mangaGetGroup = DispatchGroup()
-        var mangaList: [Manga] = []
+        var mangaList: [NetManga] = []
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -25,10 +25,15 @@ class NetworkManagerImp: NetworkManager{
             request.httpBody = postData
             URLSession.shared.dataTask(with: request) { [weak self] data, urlResp, error in
                 guard error == nil else {
+                    completion(.failure(.warningRequest(message: "pip")))
                     return
                 }
                 
-                guard let dataForJson = data else {return}
+                guard let dataForJson = data else {
+                    completion(.failure(.warningRequest(message: "pip")))
+                    return
+                }
+                
                 print(bucket)
                 self?.parseJson.deserializeMangaData(jsonData: dataForJson, completion: { result in
                     switch result{

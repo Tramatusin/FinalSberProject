@@ -9,25 +9,73 @@ import XCTest
 @testable import FinalSberProject
 
 class FinalSberProjectTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    //MARK: - Tests for JsonBuilder for Bucket of Manga
+    
+    func testJsonBuilderForMangaBucketShouldReturnCorrectResult() throws{
+        let jsonBuilder = JSONBuildManagerImp()
+        let jsonDecoder = JSONSerialization.self
+        let isValidExample = ["batch_num" : 2]
+        
+        guard let data = jsonBuilder.buildJSONForMangaBucket(bucketNum: 2),
+              let res = try? jsonDecoder.jsonObject(with: data, options: []) as? [String : Int]
+        else { return }
+        
+        
+        XCTAssertEqual(res, isValidExample)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testJsonBuilderForMangaBucketShouldReturnIncorrectResult() throws{
+        let jsonBuilder = JSONBuildManagerImp()
+        let jsonDecoder = JSONSerialization.self
+        let isValidExample = ["batch_num" : 1]
+        
+        guard let data = jsonBuilder.buildJSONForMangaBucket(bucketNum: 2),
+              let res = try? jsonDecoder.jsonObject(with: data, options: []) as? [String : Int]
+        else { return }
+        
+        
+        XCTAssertNotEqual(res, isValidExample)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testJsonBuilderForMangaBucketShouldReturnNilResult() throws{
+        let jsonBuilder = JSONBuildManagerImp()
+        
+        let data = jsonBuilder.buildJSONForMangaBucket(bucketNum: 5)
+        
+        XCTAssertNil(data)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testJsonBuilderForMangaBucketShouldReturnNotNilResult() throws{
+        let jsonBuilder = JSONBuildManagerImp()
+        let jsonDecoder = JSONSerialization.self
+        
+        guard let data = jsonBuilder.buildJSONForMangaBucket(bucketNum: 3),
+              let res = try? jsonDecoder.jsonObject(with: data, options: []) as? [String : Int]
+        else { return }
+        
+        XCTAssertNotNil(res)
+    }
+    
+    //MARK: - Tests for JsonBuilder for pages of current Manga
+    
+    func testJsonBuilderForMangaPagesShouldReturnNotNilResult() throws{
+        let jsonBuilder = JSONBuildManagerImp()
+        let jsonDecoder = JSONSerialization.self
+        
+        guard let data = jsonBuilder.buildJSONForMangaPages(code: "soloLeveling", volume: 1, chapter: 2, page: 1),
+              let res = try? jsonDecoder.jsonObject(with: data, options: []) as? [String : Any]
+        else { return }
+        
+        XCTAssertNotNil(res)
+    }
+    
+    func testJsonBuilderForMangaPagesShouldReturnNilResult() throws{
+        let jsonBuilder = JSONBuildManagerImp()
+        
+        let data = jsonBuilder.buildJSONForMangaPages(code: "", volume: 0, chapter: 0, page: 1)
+        
+        XCTAssertNil(data)
     }
 
 }

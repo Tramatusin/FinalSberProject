@@ -12,7 +12,7 @@ class JSONBuildManagerImp: JsonBuilderManager{
         let json: [String: Any] =
             ["batch_num" : bucketNum]
         
-        if JSONSerialization.isValidJSONObject(json){
+        if JSONSerialization.isValidJSONObject(json), bucketNum < 4{
             guard let jsonResData = try? JSONSerialization.data(withJSONObject: json) else { return nil }
             return jsonResData
         }
@@ -26,7 +26,7 @@ class JSONBuildManagerImp: JsonBuilderManager{
              "chapter": chapter,
              "page": 1]
         
-        if JSONSerialization.isValidJSONObject(json){
+        if JSONSerialization.isValidJSONObject(json), !code.isEmpty, volume != 0, chapter != 0{
             guard let jsonResData = try? JSONSerialization.data(withJSONObject: json) else { return nil }
             return jsonResData
         }

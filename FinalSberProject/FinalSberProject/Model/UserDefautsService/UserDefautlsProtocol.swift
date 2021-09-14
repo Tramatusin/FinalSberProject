@@ -9,6 +9,6 @@ import Foundation
 
 protocol UserDefautlsProtocol {
     func setDataInUserDefaults(pageType: TypeOngoings, key: String)
-    
-    func readDataOnUserDefaults(key: String)->TypeOngoings?
+
+    func readDataOnUserDefaults(key: String) -> TypeOngoings?
 }

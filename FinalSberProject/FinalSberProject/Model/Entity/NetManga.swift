@@ -9,38 +9,59 @@ import Foundation
 
 struct Mangas: Decodable {
     var codes: [String]?
-    
+
     var mangas: [NetManga]?
 }
 
-class NetManga: Decodable{
-    
+class NetManga: Decodable {
+
     var code: String?
-    
+
     var name: String?
-    
+
     var description: String?
-    
+
     var tags: [String]?
-    
+
     var cover: String?
-    
-    var rating_value: String?
-    
-    var rating_count: String?
-    
+
+    var ratingValue: String?
+
+    var ratingCount: String?
+
     var chapters: [Chapters]? = []
-    
+
     var countChapter: Int?
-    
-    init(name: String,code: String, description: String, tags: [String], cover: String, raiting: String, chapterCount: Int) {
+
+    init(name: String, code: String, description: String,
+         tags: [String], cover: String, raiting: String, chapterCount: Int) {
         self.name = name
         self.code = code
         self.description = description
         self.tags = tags
         self.cover = cover
-        self.rating_value = raiting
+        self.ratingValue = raiting
         self.countChapter = chapterCount
+    }
+
+    private func sliceTagsForCell(tags: [String]) -> [String] {
+        let startIn = tags.startIndex
+        let res = Array(tags[startIn..<tags.index(startIn, offsetBy: 3)])
+        return res
+    }
+
+    private func cropBase64StringForImage(base64String: String) -> String {
+        var resultCover = base64String
+        resultCover.removeFirst()
+        resultCover.removeFirst()
+        resultCover.removeLast()
+        return resultCover
+    }
+
+    func setupTagsAndCropBase64String() {
+        guard let tags = tags, let cover = cover else { return }
+        self.tags = sliceTagsForCell(tags: tags)
+        self.cover = cropBase64StringForImage(base64String: cover)
     }
 }
 

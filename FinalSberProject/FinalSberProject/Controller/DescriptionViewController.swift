@@ -8,11 +8,10 @@
 import UIKit
 
 class DescriptionViewController: UIViewController {
-    
+
     var descripView = ViewForDescription()
-    
+
     override func loadView() {
-        super.loadView()
         view = descripView
     }
 
@@ -21,5 +20,5 @@ class DescriptionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+
 }

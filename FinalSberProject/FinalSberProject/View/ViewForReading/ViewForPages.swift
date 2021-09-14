@@ -16,19 +16,19 @@ class ViewForPages: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraint()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupConstraint(){
+
+    func setupConstraint() {
         addSubview(tableViewForPages)
-        
+
         NSLayoutConstraint.activate([
             tableViewForPages.leftAnchor.constraint(equalTo: leftAnchor),
             tableViewForPages.rightAnchor.constraint(equalTo: rightAnchor),
@@ -36,5 +36,5 @@ class ViewForPages: UIView {
             tableViewForPages.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
+
 }

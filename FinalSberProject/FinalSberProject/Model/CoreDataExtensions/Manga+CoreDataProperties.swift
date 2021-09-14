@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension LocalManga {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<LocalManga> {
@@ -26,6 +25,6 @@ extension LocalManga {
 
 }
 
-extension LocalManga : Identifiable {
+extension LocalManga: Identifiable {
 
 }

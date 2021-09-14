@@ -7,75 +7,62 @@
 
 import Foundation
 
-class NetworkManagerImp: NetworkManager{
-    let parseJson = JSONParser()
-    let buildJson = JSONBuildManagerImp()
-    
-    func getMangaList(url: URL,completion: @escaping (Result<[NetManga],NetworkErrors>) -> ()) {
+class NetworkManagerImp: NetworkManager {
+    private let buildJson = JSONBuildManagerImp()
+    private let session: Networking
+//    let parseJson = JSONParser()
+
+    init(session: Networking) {
+        self.session = session
+    }
+
+    func getMangaList(url: URL, bucket: Int, completion: @escaping (Result<Data, NetworkErrors>) -> Void) {
         var request = URLRequest(url: url)
-        let mangaGetGroup = DispatchGroup()
-        var mangaList: [NetManga] = []
-        
+
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        for bucket in 1...3{
-            mangaGetGroup.enter()
-            guard let postData = buildJson.buildJSONForMangaBucket(bucketNum: bucket) else {return}
-            request.httpBody = postData
-            URLSession.shared.dataTask(with: request) { [weak self] data, urlResp, error in
-                guard error == nil else {
-                    completion(.failure(.warningRequest(message: "pip")))
-                    return
-                }
-                
-                guard let dataForJson = data else {
-                    completion(.failure(.warningRequest(message: "pip")))
-                    return
-                }
-                
-                print(bucket)
-                self?.parseJson.deserializeMangaData(jsonData: dataForJson, completion: { result in
-                    switch result{
-                    case .failure(let error):
-                        print(error)
-                    case .success(let manga):
-                        mangaList += manga
-                    }
-                })
-                
-                mangaGetGroup.leave()
-            }.resume()
-        }
-        
-        mangaGetGroup.notify(queue: .global()) {
-            completion(.success(mangaList))
-        }
+        request.timeoutInterval = 7
+
+        guard let postData = buildJson.buildJSONForMangaBucket(bucketNum: bucket) else { return }
+        request.httpBody = postData
+        session.dataTask(with: request) { data, _, error in
+        guard error == nil else {
+                completion(.failure(.warningRequest(message: "error with load")))
+                return
+            }
+            guard let dataJson = data else {
+                completion(.failure(.warningWithParseJson(message: "pip")))
+                return
+            }
+            completion(.success(dataJson))
+        }.resume()
+
     }
-    
-    func getPagesList(code: String,chapterManga: Chapters,url: URL, completion: @escaping (Result<[Data], NetworkErrors>) -> ()) {
+
+    func getPagesList(code: String, chapterManga: Chapters,
+                      url: URL, completion: @escaping (Result<Data, NetworkErrors>) -> Void) {
         guard let volume = chapterManga.volume,
               let chapter = chapterManga.chapter else { return }
         var request = URLRequest(url: url)
-        
+
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = buildJson.buildJSONForMangaPages(code: code, volume: volume, chapter: chapter, page: 1)
-        
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            guard error == nil else { return }
-            
-            guard let data = data else { return }
-            
-            self?.parseJson.deserealizePagesData(json: data) { result in
-                switch result{
-                case .failure(let error):
-                    print(error)
-                case .success(let pages):
-                    completion(.success(pages))
-                }
+        request.timeoutInterval = 30
+
+        session.dataTask(with: request) { data, _, error in
+            guard error == nil else {
+                completion(.failure(.warningRequest(message: "error with load")))
+                return
             }
+
+            guard let data = data else {
+                completion(.failure(.warningWithParseJson(message: "pip")))
+                return
+            }
+
+            completion(.success(data))
         }.resume()
     }
-    
+
 }

@@ -8,9 +8,9 @@
 import UIKit
 
 class PagesTableViewCell: UITableViewCell {
-    
+
     static let identifier = "ReadCellID"
-    
+
     lazy var imageViewForPage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,7 @@ class PagesTableViewCell: UITableViewCell {
         view.clipsToBounds = true
         return view
     }()
-    
+
     lazy var labelForNumberPage: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -32,34 +32,34 @@ class PagesTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    func configureCell(pageData: UIImage, numberOfPage: Int){
+
+    func configureCell(pageData: UIImage, numberOfPage: Int) {
         imageViewForPage.image = pageData
-        labelForNumberPage.text = "Page \(numberOfPage+1)"
+        labelForNumberPage.text = "Page \(numberOfPage + 1)"
     }
-    
-    func setupConstraints(){
+
+    func setupConstraints() {
         addSubview(imageViewForPage)
         gradientView.addSubview(labelForNumberPage)
         imageViewForPage.addSubview(gradientView)
-        
+
         NSLayoutConstraint.activate([
             imageViewForPage.leftAnchor.constraint(equalTo: leftAnchor),
             imageViewForPage.rightAnchor.constraint(equalTo: rightAnchor),
             imageViewForPage.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageViewForPage.topAnchor.constraint(equalTo: topAnchor),
-            
+
             labelForNumberPage.leftAnchor.constraint(equalTo: gradientView.leftAnchor, constant: 4),
             labelForNumberPage.rightAnchor.constraint(equalTo: gradientView.rightAnchor, constant: -4),
             labelForNumberPage.topAnchor.constraint(equalTo: gradientView.topAnchor, constant: 2),
             labelForNumberPage.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: -2),
-            
+
             gradientView.rightAnchor.constraint(equalTo: imageViewForPage.rightAnchor, constant: -12),
             gradientView.topAnchor.constraint(equalTo: topAnchor, constant: 14)
         ])
     }
-    
-    func setupGradient(){
+
+    func setupGradient() {
         let layer0 = CAGradientLayer()
         layer0.colors = [
           UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1).cgColor,
@@ -67,9 +67,9 @@ class PagesTableViewCell: UITableViewCell {
         ]
         layer0.locations = [0, 1]
         layer0.frame = self.bounds
-        gradientView.layer.insertSublayer(layer0, at:0)
+        gradientView.layer.insertSublayer(layer0, at: 0)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()

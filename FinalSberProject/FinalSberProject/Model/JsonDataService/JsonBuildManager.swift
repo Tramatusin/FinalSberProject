@@ -8,6 +8,6 @@
 import Foundation
 
 protocol JsonBuilderManager {
-    func buildJSONForMangaPages(code: String, volume: Int, chapter: Double, page: Int)->Data?
-    func buildJSONForMangaBucket(bucketNum: Int)->Data?
+    func buildJSONForMangaPages(code: String, volume: Int, chapter: Double, page: Int) -> Data?
+    func buildJSONForMangaBucket(bucketNum: Int) -> Data?
 }

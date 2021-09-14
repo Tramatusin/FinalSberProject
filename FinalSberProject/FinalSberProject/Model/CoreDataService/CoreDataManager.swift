@@ -9,7 +9,7 @@ import Foundation
 
 protocol CoreDataManager {
     func writeObject(manga: NetManga)
-    func fetchResult()->[LocalManga]?
+    func fetchResult() -> [LocalManga]?
     func clearObjects()
-    func containsCurrentMangaInCoreData(manga: NetManga)->Bool
+    func containsCurrentMangaInCoreData(manga: NetManga) -> Bool
 }

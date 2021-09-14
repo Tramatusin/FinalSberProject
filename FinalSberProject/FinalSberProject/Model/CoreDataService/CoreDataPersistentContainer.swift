@@ -8,16 +8,16 @@
 import Foundation
 import CoreData
 
-class Container{
-    
+class Container {
+
     let mangaContainer: NSPersistentContainer = {
         let mangaContainer = NSPersistentContainer(name: "FinalSberProject")
-        mangaContainer.loadPersistentStores { description, error in
+        mangaContainer.loadPersistentStores { _, error in
             if let error = error {
                 fatalError(error.localizedDescription)
             }
         }
         return mangaContainer
     }()
-    
+
 }

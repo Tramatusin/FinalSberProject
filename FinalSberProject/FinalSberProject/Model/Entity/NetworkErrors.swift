@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkErrors: Error{
+enum NetworkErrors: Error, Equatable {
     case warningWithParseJson(message: String)
     case warningResponse(message: String)
     case warningRequest(message: String)

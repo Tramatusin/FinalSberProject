@@ -1,0 +1,5 @@
+{
+    "pages": [
+        "https://img3.cdnlibs.link//manga/i-alone-level-up/chapters/1437012/151-002_vb95.png"
+    ]
+}

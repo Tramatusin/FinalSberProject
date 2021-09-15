@@ -33,7 +33,6 @@ class MangaTitleTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "SFProText-Medium", size: 14)
         label.textColor = .black
-        label.text = "Поднятие уровня в одиночку"
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false

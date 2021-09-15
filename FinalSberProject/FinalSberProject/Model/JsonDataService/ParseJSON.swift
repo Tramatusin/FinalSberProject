@@ -18,8 +18,9 @@ class JSONParser {
                               completion: @escaping (Result<[NetManga], NetworkErrors>) -> Void) {
         var resultMangaList: [NetManga] = []
         let mangaLoadGroup = DispatchGroup()
-
-        for bucket in 1...2 {
+        let semaphore = DispatchSemaphore(value: 1)
+        for bucket in 1...3 {
+            semaphore.wait()
             mangaLoadGroup.enter()
             self.networkManager.getMangaList(url: url, bucket: bucket) { [weak self] result in
                 switch result {
@@ -31,14 +32,13 @@ class JSONParser {
                     resultMangaList += currentMangas
                     print("kiki")
                     mangaLoadGroup.leave()
+                    semaphore.signal()
                 }
             }
         }
-
-        mangaLoadGroup.notify(queue: .main) {
+        mangaLoadGroup.notify(queue: .global()) {
             completion(.success(resultMangaList))
         }
-
     }
 
     func deserealizePagesData(code: String, chapterManga: Chapters,

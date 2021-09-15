@@ -68,6 +68,7 @@ class ViewForListController: UIView, UITableViewDelegate {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(MangaTitleTableViewCell.self, forCellReuseIdentifier: "mangaCell")
+        tableView.accessibilityLabel = "OngoingTable"
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false

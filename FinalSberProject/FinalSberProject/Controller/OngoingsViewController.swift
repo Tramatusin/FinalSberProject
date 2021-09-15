@@ -168,6 +168,7 @@ extension OngoingsViewController {
         else { return tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath) }
         let curMangaList: [NetManga] = setMangaList()
         let indexOfManga = curMangaList[indexPath.row]
+        cell.accessibilityLabel = "cell_\(indexPath.row)"
 
         guard let dataImageStr = indexOfManga.cover,
               let finalData = Data(base64Encoded: dataImageStr, options: .ignoreUnknownCharacters),

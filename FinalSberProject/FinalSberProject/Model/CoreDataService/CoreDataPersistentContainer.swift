@@ -9,14 +9,11 @@ import Foundation
 import CoreData
 
 class Container {
-//    var modelURL = Bundle(for: type(of: ))
     
     lazy var mangaContainer: NSPersistentContainer = {
-//        let mangaContainer = NSPersistentContainer(name: "FinalSberProject")
         var modelURL = Bundle(for: type(of: self))
             .url(forResource: "FinalSberProject", withExtension: "momd")!
 
-           // ===> here you append the nameOfVersion.mom you created
         modelURL.appendPathComponent("FinalSberProject.mom")
         guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)
             else { return mangaContainer }

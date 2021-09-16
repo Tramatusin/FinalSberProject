@@ -13,7 +13,7 @@ class ViewForDescription: UIView {
     lazy var labelForTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Описание"
+        label.text = "Подробности"
         label.font = UIFont(name: "SFProText-Medium", size: 19)
         label.sizeToFit()
         label.accessibilityIdentifier = "description"
@@ -22,30 +22,97 @@ class ViewForDescription: UIView {
         return label
     }()
 
-    lazy var labelForDescription: UILabel = {
+//    lazy var labelForDescription: UITextView = {
+//        let label = UITextView()
+//        label.font = UIFont(name: "SFProText-Medium", size: 16)
+//        label.textColor = .black
+//        label.textAlignment = .natural
+//        label.backgroundColor = .blue
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+    
+    lazy var textViewForDescription: UITextView = {
+        let text = UITextView()
+        text.font = UIFont(name: "SFProText-Medium", size: 16)
+        text.textColor = .black
+        text.isEditable = false
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
+    
+    lazy var imageOfTitle: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 16
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var labelForRating: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProText-Medium", size: 15)
+        label.textColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var labelForRatingCount: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "SFProText-Medium", size: 16)
         label.textColor = .black
+        label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
-        label.textAlignment = .natural
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var labelForHeader: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProText-Medium", size: 19)
+        label.text = "Описание"
+        label.textColor = .black
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     func setupConstraint() {
         addSubview(labelForTitle)
-        addSubview(labelForDescription)
+        addSubview(imageOfTitle)
+        addSubview(textViewForDescription)
+        addSubview(labelForRating)
+        addSubview(labelForRatingCount)
+        addSubview(labelForHeader)
 
         NSLayoutConstraint.activate([
             labelForTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 4),
             labelForTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: -4),
             labelForTitle.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            labelForTitle.bottomAnchor.constraint(equalTo: labelForDescription.topAnchor, constant: -6),
+//            labelForTitle.bottomAnchor.constraint(equalTo: labelForDescription.topAnchor, constant: -6),
+            
+            imageOfTitle.topAnchor.constraint(equalTo: labelForTitle.bottomAnchor, constant: 4),
+            imageOfTitle.leftAnchor.constraint(equalTo: textViewForDescription.leftAnchor),
+            imageOfTitle.widthAnchor.constraint(equalToConstant: 100),
+            imageOfTitle.heightAnchor.constraint(equalToConstant: 150),
+            
+            labelForRatingCount.bottomAnchor.constraint(equalTo: imageOfTitle.bottomAnchor),
+            labelForRatingCount.leftAnchor.constraint(equalTo: imageOfTitle.rightAnchor, constant: 13),
+            
+            labelForRating.bottomAnchor.constraint(equalTo: labelForRatingCount.topAnchor,
+                                                   constant: -4),
+            labelForRating.leftAnchor.constraint(equalTo: labelForRatingCount.leftAnchor),
+            
+            labelForHeader.topAnchor.constraint(equalTo: imageOfTitle.bottomAnchor, constant: 8),
+            labelForHeader.leftAnchor.constraint(equalTo: labelForTitle.leftAnchor),
+            labelForHeader.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),
 
 //            labelForDescription.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9),
-            labelForDescription.leftAnchor.constraint(equalTo: labelForTitle.leftAnchor),
-            labelForDescription.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),
-            labelForDescription.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -4)
+            textViewForDescription.topAnchor.constraint(equalTo: labelForHeader.bottomAnchor, constant: 2),
+            textViewForDescription.leftAnchor.constraint(equalTo: labelForTitle.leftAnchor),
+            textViewForDescription.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),
+            textViewForDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
 //            labelForDescription.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -58,8 +125,16 @@ class ViewForDescription: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setDataInView(description: String) {
-        labelForDescription.text = description
+    func setDataInView(manga: NetManga) {
+        textViewForDescription.text = manga.description
+        guard let dataImage = manga.cover,
+              let image = Data(base64Encoded: dataImage, options: .ignoreUnknownCharacters),
+              let rating = manga.ratingValue,
+              let ratingCount = manga.ratingCount
+        else { return }
+        imageOfTitle.image = UIImage(data: image)
+        labelForRating.text = "Рейтинг: \(rating) ✭"
+        labelForRatingCount.text = "Оценку дало: \(ratingCount) человек"
     }
 
     override func layoutSubviews() {

@@ -28,7 +28,8 @@ class MangaViewController: UIViewController {
     func setTapOnDescrip() {
         mangaView.tapOnDecription = { [weak self] in
             let descriptionVC = DescriptionViewController()
-            descriptionVC.descripView.setDataInView(description: self?.currentManga?.description ?? " ")
+            guard let curManga = self?.currentManga else { return }
+            descriptionVC.descripView.setDataInView(manga: curManga)
             self?.present(descriptionVC, animated: true, completion: nil)
         }
     }

@@ -9,9 +9,19 @@ import Foundation
 import CoreData
 
 class Container {
+//    var modelURL = Bundle(for: type(of: ))
+    
+    lazy var mangaContainer: NSPersistentContainer = {
+//        let mangaContainer = NSPersistentContainer(name: "FinalSberProject")
+        var modelURL = Bundle(for: type(of: self))
+            .url(forResource: "FinalSberProject", withExtension: "momd")!
 
-    let mangaContainer: NSPersistentContainer = {
-        let mangaContainer = NSPersistentContainer(name: "FinalSberProject")
+           // ===> here you append the nameOfVersion.mom you created
+        modelURL.appendPathComponent("FinalSberProject.mom")
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)
+            else { return mangaContainer }
+        let mangaContainer = NSPersistentContainer(name: "LocalManga", managedObjectModel: managedObjectModel)
+        mangaContainer.persistentStoreDescriptions.first?.shouldInferMappingModelAutomatically = false
         mangaContainer.loadPersistentStores { _, error in
             if let error = error {
                 fatalError(error.localizedDescription)

@@ -119,6 +119,8 @@ extension OngoingsViewController {
                         self?.someView.manhvaBut.isHidden = true
                         self?.someView.manhuyaBut.isHidden = true
                         self?.someView.mangaBut.setTitle("Офлайн", for: .normal)
+                        self?.someView.mangaBut.titleLabel?.font =
+                            UIFont(name: "SFProText-Medium", size: 16)
                     }
                     self?.endLoad()
                     print(error)
@@ -161,7 +163,7 @@ extension OngoingsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return setMangaList().count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath)
                 as? MangaTitleTableViewCell
@@ -179,6 +181,7 @@ extension OngoingsViewController {
               let raiting = curMangaList[indexPath.row].ratingValue else { return cell }
         cell.configureCell(name: nameOfTitle, data: finalData,
                            tags: tags, chaptersCount: chaptersCount.count, raiting: raiting)
+
         return cell
     }
 

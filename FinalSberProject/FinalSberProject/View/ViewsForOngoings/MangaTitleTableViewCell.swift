@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 class MangaTitleTableViewCell: UITableViewCell {
-
-//    var tapOnFavouriteButton: ((UIButton)->())?
-
+    
     lazy var viewForItems: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -79,7 +77,7 @@ class MangaTitleTableViewCell: UITableViewCell {
 
     lazy var buttonForFavourite: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "bookmark.circle.fill")
+        imageView.image = UIImage(systemName: "book.circle.fill")
         imageView.contentMode = .scaleAspectFit
 //        imageView.contentVerticalAlignment = .fill
 //        imageView.contentHorizontalAlignment = .fill
@@ -109,24 +107,21 @@ class MangaTitleTableViewCell: UITableViewCell {
             imageOfTitle.leftAnchor.constraint(equalTo: viewForItems.leftAnchor, constant: 8),
             imageOfTitle.heightAnchor.constraint(equalToConstant: 120),
             imageOfTitle.widthAnchor.constraint(equalToConstant: 80),
-
+            
             labelOfTitle.topAnchor.constraint(equalTo: imageOfTitle.topAnchor),
             labelOfTitle.leftAnchor.constraint(equalTo: imageOfTitle.rightAnchor, constant: 13),
-            labelOfTitle.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -8),
+            labelOfTitle.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -50),
+            labelOfTitle.rightAnchor.constraint(equalTo: labelForRaiting.leftAnchor, constant: -4),
 
             labelForRaiting.rightAnchor.constraint(equalTo: buttonForFavourite.rightAnchor),
-            labelForRaiting.leftAnchor.constraint(equalTo: labelOfTitle.rightAnchor, constant: 4),
             labelForRaiting.topAnchor.constraint(equalTo: labelOfTitle.topAnchor),
 
             labelOfTags.rightAnchor.constraint(equalTo: labelOfTitle.rightAnchor),
             labelOfTags.leftAnchor.constraint(equalTo: labelOfTitle.leftAnchor),
             labelOfTags.topAnchor.constraint(equalTo: labelOfTitle.bottomAnchor, constant: 2),
-            // labelOfTags.bottomAnchor.constraint(greaterThanOrEqualTo: gradientView.topAnchor, constant: -4),
 
             gradientView.leftAnchor.constraint(equalTo: labelOfTitle.leftAnchor),
             gradientView.bottomAnchor.constraint(equalTo: imageOfTitle.bottomAnchor),
-            // gradientView.widthAnchor.constraint(equalToConstant: 80),
-            // gradientView.heightAnchor.constraint(equalToConstant: 23),
 
             labelOfCountChapters.leftAnchor.constraint(equalTo: gradientView.leftAnchor, constant: 32),
             labelOfCountChapters.topAnchor.constraint(equalTo: gradientView.topAnchor, constant: 8),
@@ -135,40 +130,43 @@ class MangaTitleTableViewCell: UITableViewCell {
 
             buttonForFavourite.rightAnchor.constraint(equalTo: viewForItems.rightAnchor, constant: -8),
             buttonForFavourite.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor),
-            // buttonForFavourite.topAnchor.constraint(equalTo: gradientView.topAnchor),
             buttonForFavourite.widthAnchor.constraint(equalToConstant: 35),
             buttonForFavourite.heightAnchor.constraint(equalTo: buttonForFavourite.widthAnchor)
         ])
     }
 
     func configureCell(name: String, data: Data, tags: [String], chaptersCount: Int, raiting: String) {
+        let resChapterCount = chaptersCount == 0 ? "-" : "\(chaptersCount)"
         labelOfTitle.text = name
         imageOfTitle.image = UIImage(data: data)
         labelOfTags.text = tags.joined(separator: ", ")
-        labelOfCountChapters.text = "\(String(chaptersCount)) глав"
+        labelOfCountChapters.text = "\(resChapterCount) глав"
         labelForRaiting.text = "R: \(raiting) ✭"
     }
 
     func setupCellAndShadow() {
-        self.viewForItems.layer.cornerRadius = 20
-        self.viewForItems.clipsToBounds = false
+        viewForItems.layer.cornerRadius = 20
+        viewForItems.layer.masksToBounds = false
         viewForItems.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         viewForItems.layer.shadowOpacity = 1
         viewForItems.layer.shadowRadius = 7
         viewForItems.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         viewForItems.layer.shadowPath = UIBezierPath(roundedRect: viewForItems.bounds, cornerRadius: 20).cgPath
     }
-
-//    @objc func didTapOnFavouriteButton(sender: UIButton){
-//        tapOnFavouriteButton?(sender)
-//    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .white
+        self.selectionStyle = .none
+        setupConstraint()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = .white
-        self.selectionStyle = .none
         setupCellAndShadow()
-        // setupGradientView()
-        setupConstraint()
     }
 }

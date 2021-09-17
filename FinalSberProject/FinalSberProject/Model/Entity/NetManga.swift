@@ -34,7 +34,7 @@ class NetManga: Decodable {
     var countChapter: Int?
 
     init(name: String, code: String, description: String,
-         tags: [String], cover: String, raiting: String, chapterCount: Int) {
+         tags: [String], cover: String, raiting: String, chapterCount: Int, ratCont: String) {
         self.name = name
         self.code = code
         self.description = description
@@ -42,6 +42,7 @@ class NetManga: Decodable {
         self.cover = cover
         self.ratingValue = raiting
         self.countChapter = chapterCount
+        self.ratingCount = ratCont
     }
 
     private func sliceTagsForCell(tags: [String]) -> [String] {

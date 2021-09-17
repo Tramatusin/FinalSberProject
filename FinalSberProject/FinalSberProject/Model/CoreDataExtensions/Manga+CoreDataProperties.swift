@@ -20,6 +20,7 @@ extension LocalManga {
     @NSManaged public var descriptions: String?
     @NSManaged public var cover: String?
     @NSManaged public var raiting: String?
+    @NSManaged public var ratingCount: String?
     @NSManaged public var chapters: Int16
     @NSManaged public var tags: String?
 

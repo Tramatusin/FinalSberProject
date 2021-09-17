@@ -38,6 +38,7 @@ class CoreDataManagerImp: CoreDataManager {
             // print(localManga.descriptions)
             localManga.tags = manga.tags?.joined(separator: ", ")
             localManga.raiting = manga.ratingValue
+            localManga.ratingCount = manga.ratingCount
             localManga.code = manga.code
             try? writeContext.save()
         }
@@ -84,10 +85,13 @@ class CoreDataManagerImp: CoreDataManager {
                       let description = item.descriptions,
                       let tags = item.tags,
                       let cover = item.cover,
-                      let raiting = item.raiting else { return }
+                      let raiting = item.raiting,
+                      let ratingCount = item.ratingCount
+                else { return }
                 let netManga = NetManga(name: name, code: code,
                                         description: description, tags: [tags],
-                                        cover: cover, raiting: raiting, chapterCount: Int(item.chapters))
+                                        cover: cover, raiting: raiting,
+                                        chapterCount: Int(item.chapters), ratCont: ratingCount)
                 resultMangaList.append(netManga)
             }
         }

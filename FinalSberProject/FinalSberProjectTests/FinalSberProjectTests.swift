@@ -88,7 +88,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testGetMangaListShouldReturnCorrectData() throws {
         // arrange
-        let manager = NetworkManagerImp(session: session)
+        let manager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
         let data = Data()
         session.result = .success(data)
         let url = URL(string: "url")!
@@ -113,7 +113,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testGetMangaListSouldReturnErrorWarningRequest() throws {
         // arrange
-        let networkManager = NetworkManagerImp(session: session)
+        let networkManager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
         session.result = .failure(NetworkErrors.warningRequest(message: "Error with request"))
         var receivedError: NetworkErrors?
 
@@ -134,7 +134,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testGetMangaListShouldWarningWithJsonParse() throws {
         // arrange
-        let networkManager = NetworkManagerImp(session: session)
+        let networkManager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
         session.result = .success(nil)
         var receivedError: NetworkErrors?
 
@@ -155,7 +155,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testGetPagesListShouldReturnCorrectData()throws {
         // arrange
-        let manager = NetworkManagerImp(session: session)
+        let manager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
         let data = Data()
         session.result = .success(data)
         let url = URL(string: "url")!
@@ -180,7 +180,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testGetPagesListSouldReturnErrorWarningRequest() throws {
         // arrange
-        let networkManager = NetworkManagerImp(session: session)
+        let networkManager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
         session.result = .failure(NetworkErrors.warningRequest(message: "Error with request"))
         var receivedError: NetworkErrors?
         let url = URL(string: "url")!
@@ -203,7 +203,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testGetPagesListShouldWarningWithJsonParse() throws {
         // arrange
-        let networkManager = NetworkManagerImp(session: session)
+        let networkManager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
         session.result = .success(nil)
         var receivedError: NetworkErrors?
         let url = URL(string: "url")!
@@ -229,7 +229,7 @@ class FinalSberProjectTests: XCTestCase {
         let bundle = Bundle(for: type(of: self))
         let path = bundle.path(forResource: "manga", ofType: "txt")!
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { return }
-        let parser = JSONParser(session: URLSession.shared)
+        let parser = JsonDataManagerImp(session: session, jsonBuilder: jsonBuilder)
 
         // act
         let result = parser.deserializeDataToNetmanga(jsonData: data)
@@ -257,7 +257,7 @@ class FinalSberProjectTests: XCTestCase {
         let bundle = Bundle(for: type(of: self))
         let path = bundle.path(forResource: "pages", ofType: "txt")!
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { return }
-        let parser = JSONParser(session: URLSession.shared)
+        let parser = JsonDataManagerImp(session: session, jsonBuilder: jsonBuilder)
 
         // act
         let result = parser.deserializeDataToURLsArray(jsonData: data)
@@ -271,7 +271,7 @@ class FinalSberProjectTests: XCTestCase {
     func testDeserializeMangaShouldReturnEmptyArray() throws {
         // arrange
         let data = Data()
-        let parser = JSONParser(session: session)
+        let parser = JsonDataManagerImp(session: session, jsonBuilder: jsonBuilder)
 
         // act
         let result = parser.deserializeDataToNetmanga(jsonData: data)
@@ -283,7 +283,7 @@ class FinalSberProjectTests: XCTestCase {
     func testDeserializePagesShouldReturnEmptyArray() throws {
         // arrange
         let data = Data()
-        let parser = JSONParser(session: session)
+        let parser = JsonDataManagerImp(session: session, jsonBuilder: jsonBuilder)
 
         // act
         let result = parser.deserializeDataToURLsArray(jsonData: data)
@@ -294,7 +294,7 @@ class FinalSberProjectTests: XCTestCase {
 
     func testLoadAndDeserializePagesShouldReturnCorrectResult() throws {
         // arrange
-        let dataManager = JSONParser(session: session)
+        let dataManager = JsonDataManagerImp(session: session, jsonBuilder: jsonBuilder)
         let bundle = Bundle(for: type(of: self))
         let path = bundle.path(forResource: "pages", ofType: "txt")!
         let data = try? Data(contentsOf: URL(fileURLWithPath: path))

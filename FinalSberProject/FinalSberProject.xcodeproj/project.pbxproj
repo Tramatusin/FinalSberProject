@@ -62,6 +62,9 @@
 		5B45C08C26F5167600912BB9 /* ShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08B26F5167600912BB9 /* ShowErrors.swift */; };
 		5B45C08D26F5210400912BB9 /* ShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08B26F5167600912BB9 /* ShowErrors.swift */; };
 		5B45C08F26F5388C00912BB9 /* JsonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08E26F5388C00912BB9 /* JsonDataManager.swift */; };
+		5B45C09026F5497800912BB9 /* JsonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08E26F5388C00912BB9 /* JsonDataManager.swift */; };
+		5B45C09126F5499400912BB9 /* JsonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08E26F5388C00912BB9 /* JsonDataManager.swift */; };
+		5B45C09326F54BBC00912BB9 /* ViewForDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */; };
 		5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
 		5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
 		5B62F41B26D7A052007675EB /* TypeOngoings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41A26D7A052007675EB /* TypeOngoings.swift */; };
@@ -658,6 +661,7 @@
 				5BBE544126E813FD0008EEEF /* NetworkManagerImp.swift in Sources */,
 				5BBE544026E8109A0008EEEF /* JsonBuildManager.swift in Sources */,
 				5BBE543C26E80FB60008EEEF /* JsonDataManagerImp.swift in Sources */,
+				5B45C09026F5497800912BB9 /* JsonDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,12 +680,14 @@
 				5B45C08926F515A900912BB9 /* ReadViewController.swift in Sources */,
 				5B45C08126F128F900912BB9 /* DescriptionPage.swift in Sources */,
 				5B1A9D3B26CA6C4B00719B28 /* FinalSberProjectUITests.swift in Sources */,
+				5B45C09126F5499400912BB9 /* JsonDataManager.swift in Sources */,
 				5B45C06F26EF6B6000912BB9 /* ViewForPages.swift in Sources */,
 				5B45C07226EF6B7300912BB9 /* JsonDataManagerImp.swift in Sources */,
 				5B45C07626EF6BB600912BB9 /* NetworkErrors.swift in Sources */,
 				5B45C07026EF6B6700912BB9 /* PagesTableViewCell.swift in Sources */,
 				5B45C07826EF6BD700912BB9 /* JsonBuildManager.swift in Sources */,
 				5B45C07126EF6B6D00912BB9 /* LoadingViewController.swift in Sources */,
+				5B45C09326F54BBC00912BB9 /* ViewForDescription.swift in Sources */,
 				5B45C07726EF6BC600912BB9 /* JSONBuildManagerImp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

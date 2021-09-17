@@ -17,11 +17,11 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     private let loadingVC = LoadingViewController()
     private let someView = ViewForListController()
     private let networkDataManager: JsonDataManager
-    private let userDef: UserDefautlsService
+    private let userDef: UserDefautltsManager
     private let coreDataManager: CoreDataManager
     private let refreshControl = UIRefreshControl()
 
-    init(dataManager: JsonDataManager, userDefManager: UserDefautlsService,
+    init(dataManager: JsonDataManager, userDefManager: UserDefautltsManager,
          coreDataManager: CoreDataManager) {
         self.networkDataManager = dataManager
         self.userDef = userDefManager

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UserDefautlsService {
+protocol UserDefautltsManager {
     func setDataInUserDefaults(pageType: TypeOngoings, key: String)
 
     func readDataOnUserDefaults(key: String) -> TypeOngoings?

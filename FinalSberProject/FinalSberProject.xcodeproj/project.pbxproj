@@ -68,8 +68,8 @@
 		5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
 		5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
 		5B62F41B26D7A052007675EB /* TypeOngoings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41A26D7A052007675EB /* TypeOngoings.swift */; };
-		5B62F41E26D7CAAC007675EB /* UserDefautlsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41D26D7CAAC007675EB /* UserDefautlsService.swift */; };
-		5B62F42026D7CAC2007675EB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */; };
+		5B62F41E26D7CAAC007675EB /* UserDefautltsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41D26D7CAAC007675EB /* UserDefautltsManager.swift */; };
+		5B62F42026D7CAC2007675EB /* UserDefaultsManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41F26D7CAC2007675EB /* UserDefaultsManagerImp.swift */; };
 		5BBE543826E7FFC00008EEEF /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE543726E7FFC00008EEEF /* NetworkManagerMock.swift */; };
 		5BBE543A26E80EF70008EEEF /* NetManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* NetManga.swift */; };
 		5BBE543B26E80EFB0008EEEF /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */; };
@@ -149,8 +149,8 @@
 		5B62F41326D5007E007675EB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5B62F41526D50AAB007675EB /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		5B62F41A26D7A052007675EB /* TypeOngoings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOngoings.swift; sourceTree = "<group>"; };
-		5B62F41D26D7CAAC007675EB /* UserDefautlsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsService.swift; sourceTree = "<group>"; };
-		5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		5B62F41D26D7CAAC007675EB /* UserDefautltsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautltsManager.swift; sourceTree = "<group>"; };
+		5B62F41F26D7CAC2007675EB /* UserDefaultsManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerImp.swift; sourceTree = "<group>"; };
 		5BBE543726E7FFC00008EEEF /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
 		5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForSelectedManga.swift; sourceTree = "<group>"; };
@@ -444,8 +444,8 @@
 		5B62F41C26D7CA91007675EB /* UserDefautsService */ = {
 			isa = PBXGroup;
 			children = (
-				5B62F41D26D7CAAC007675EB /* UserDefautlsService.swift */,
-				5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */,
+				5B62F41D26D7CAAC007675EB /* UserDefautltsManager.swift */,
+				5B62F41F26D7CAC2007675EB /* UserDefaultsManagerImp.swift */,
 			);
 			path = UserDefautsService;
 			sourceTree = "<group>";
@@ -612,7 +612,7 @@
 			files = (
 				5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */,
 				5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */,
-				5B62F41E26D7CAAC007675EB /* UserDefautlsService.swift in Sources */,
+				5B62F41E26D7CAAC007675EB /* UserDefautltsManager.swift in Sources */,
 				5B062E6726DB9DCA0042F123 /* Manga+CoreDataClass.swift in Sources */,
 				5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */,
 				5B1A9D5926CA8E9F00719B28 /* NetManga.swift in Sources */,
@@ -639,7 +639,7 @@
 				5B062E6E26DBA8D50042F123 /* CoreDataManagerImp.swift in Sources */,
 				5B062E6826DB9DCA0042F123 /* Manga+CoreDataProperties.swift in Sources */,
 				5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */,
-				5B62F42026D7CAC2007675EB /* UserDefaultsManager.swift in Sources */,
+				5B62F42026D7CAC2007675EB /* UserDefaultsManagerImp.swift in Sources */,
 				5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */,
 				5B27FF3426D39B8000374DD0 /* ViewForPages.swift in Sources */,
 				5B1A9D1826CA6C4A00719B28 /* SceneDelegate.swift in Sources */,

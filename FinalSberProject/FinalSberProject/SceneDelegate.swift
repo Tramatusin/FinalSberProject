@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let jsonBuilder = JSONBuildManagerImp()
         let jsonDataManager = JsonDataManagerImp(session: URLSession.shared,
                                                  jsonBuilder: jsonBuilder)
-        let userDefaultsManager = UserDefaultsManager()
+        let userDefaultsManager = UserDefaultsManagerImp()
         let coreDataManager = CoreDataManagerImp()
         let viewController =
             OngoingsViewController(dataManager: jsonDataManager,

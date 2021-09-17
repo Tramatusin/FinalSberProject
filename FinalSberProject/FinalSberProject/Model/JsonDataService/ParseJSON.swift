@@ -59,16 +59,25 @@ class JSONParser {
                 }
 
                 print(pages)
-
+                let group = DispatchGroup()
+                let semaphore = DispatchSemaphore(value: 1)
                 for url in pages {
-                    guard let resUrl = URL(string: url),
-                          let currentPage = try? Data(contentsOf: resUrl) else {
-                        completion(.success(pagesData))
-                        return }
-                    print("page")
-                    pagesData.append(currentPage)
+                    semaphore.wait()
+                    group.enter()
+                    DispatchQueue.global(qos: .userInteractive).async {
+                        guard let resUrl = URL(string: url),
+                              let currentPage = try? Data(contentsOf: resUrl) else {
+                            completion(.success(pagesData))
+                            return }
+                        print("page")
+                        pagesData.append(currentPage)
+                        group.leave()
+                        semaphore.signal()
+                    }
                 }
-                completion(.success(pagesData))
+                group.notify(queue: .global()) {
+                    completion(.success(pagesData))
+                }
             }
         }
     }

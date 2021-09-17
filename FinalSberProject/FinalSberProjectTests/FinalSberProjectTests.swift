@@ -242,7 +242,7 @@ class FinalSberProjectTests: XCTestCase {
         // arrange
         let netManga = NetManga(name: "solo", code: "sololevelup", description: "hello",
                                 tags: ["мистика", "фэнтези", "артефакты", "система"],
-                                cover: "22фоточка2", raiting: "", chapterCount: 2)
+                                cover: "22фоточка2", raiting: "", chapterCount: 2, ratCont: "")
 
         // act
         netManga.setupTagsAndCropBase64String()

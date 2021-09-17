@@ -43,7 +43,6 @@
 		5B45C05D26E9563300912BB9 /* manga.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B45C05B26E9530B00912BB9 /* manga.txt */; };
 		5B45C06326EE5CAA00912BB9 /* pages.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B45C06226EE5CAA00912BB9 /* pages.txt */; };
 		5B45C06C26EF695A00912BB9 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 5B45C06B26EF695A00912BB9 /* SnapshotTesting */; };
-		5B45C06D26EF6B2D00912BB9 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3026D39A2200374DD0 /* ReadViewController.swift */; };
 		5B45C06E26EF6B5600912BB9 /* NetManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* NetManga.swift */; };
 		5B45C06F26EF6B6000912BB9 /* ViewForPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3326D39B8000374DD0 /* ViewForPages.swift */; };
 		5B45C07026EF6B6700912BB9 /* PagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */; };
@@ -218,8 +217,7 @@
 			children = (
 				5B284B2D26CC20CC00A44DBF /* Resources */,
 				5B1A9D4826CA6C5E00719B28 /* Model */,
-				5B1A9D4926CA6C6500719B28 /* View */,
-				5B1A9D4A26CA6C6C00719B28 /* Controller */,
+				5B1A9D4926CA6C6500719B28 /* UI */,
 				5B1A9D1526CA6C4A00719B28 /* AppDelegate.swift */,
 				5B1A9D1726CA6C4A00719B28 /* SceneDelegate.swift */,
 				5B1A9D2126CA6C4B00719B28 /* Assets.xcassets */,
@@ -264,28 +262,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1A9D4926CA6C6500719B28 /* View */ = {
+		5B1A9D4926CA6C6500719B28 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5B45C08826F4DC7900912BB9 /* LoaderView */,
+				5B45C08626F4DC4800912BB9 /* ViewForDescription */,
 				5B27FF3226D39B5C00374DD0 /* ViewForReading */,
 				5B27FF2326CFCA4C00374DD0 /* ViewsForOngoings */,
 				5B27FF2226CFCA0F00374DD0 /* SelectedMangaView */,
 				5B27FF2126CFC9DE00374DD0 /* GradientsView */,
-				5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		5B1A9D4A26CA6C6C00719B28 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5B1A9D1926CA6C4A00719B28 /* OngoingsViewController.swift */,
-				5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */,
-				5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */,
-				5B27FF3026D39A2200374DD0 /* ReadViewController.swift */,
-				5B62F41326D5007E007675EB /* LoadingViewController.swift */,
-			);
-			path = Controller;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		5B1A9D4F26CA702500719B28 /* NetworkService */ = {
@@ -320,8 +307,8 @@
 		5B27FF2226CFCA0F00374DD0 /* SelectedMangaView */ = {
 			isa = PBXGroup;
 			children = (
-				5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */,
-				5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */,
+				5B45C08526F4DC2300912BB9 /* Views */,
+				5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */,
 			);
 			path = SelectedMangaView;
 			sourceTree = "<group>";
@@ -329,8 +316,8 @@
 		5B27FF2326CFCA4C00374DD0 /* ViewsForOngoings */ = {
 			isa = PBXGroup;
 			children = (
-				5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */,
-				5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */,
+				5B45C08426F4DC0700912BB9 /* Views */,
+				5B1A9D1926CA6C4A00719B28 /* OngoingsViewController.swift */,
 			);
 			path = ViewsForOngoings;
 			sourceTree = "<group>";
@@ -338,8 +325,8 @@
 		5B27FF3226D39B5C00374DD0 /* ViewForReading */ = {
 			isa = PBXGroup;
 			children = (
-				5B27FF3326D39B8000374DD0 /* ViewForPages.swift */,
-				5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */,
+				5B45C08326F4DBE000912BB9 /* Views */,
+				5B27FF3026D39A2200374DD0 /* ReadViewController.swift */,
 			);
 			path = ViewForReading;
 			sourceTree = "<group>";
@@ -381,6 +368,58 @@
 				5B45C06226EE5CAA00912BB9 /* pages.txt */,
 			);
 			path = JsonTexts;
+			sourceTree = "<group>";
+		};
+		5B45C08326F4DBE000912BB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B27FF3326D39B8000374DD0 /* ViewForPages.swift */,
+				5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B45C08426F4DC0700912BB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B1A9D4B26CA6F8600719B28 /* ViewForListController.swift */,
+				5B1A9D5526CA7A0000719B28 /* MangaTitleTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B45C08526F4DC2300912BB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BD5D5DB26CD4ACC009DED79 /* ViewForSelectedManga.swift */,
+				5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B45C08626F4DC4800912BB9 /* ViewForDescription */ = {
+			isa = PBXGroup;
+			children = (
+				5B45C08726F4DC5C00912BB9 /* Views */,
+				5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */,
+			);
+			path = ViewForDescription;
+			sourceTree = "<group>";
+		};
+		5B45C08726F4DC5C00912BB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B45C08826F4DC7900912BB9 /* LoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				5B62F41326D5007E007675EB /* LoadingViewController.swift */,
+			);
+			path = LoaderView;
 			sourceTree = "<group>";
 		};
 		5B62F41C26D7CA91007675EB /* UserDefautsService */ = {
@@ -611,7 +650,6 @@
 				5B45C07426EF6BA600912BB9 /* NetworkManager.swift in Sources */,
 				5B45C07526EF6BAE00912BB9 /* NetworkManagerImp.swift in Sources */,
 				5B45C07326EF6B7D00912BB9 /* LoaderManager.swift in Sources */,
-				5B45C06D26EF6B2D00912BB9 /* ReadViewController.swift in Sources */,
 				5B45C07B26EFE63F00912BB9 /* Page.swift in Sources */,
 				5B45C07F26EFEBA300912BB9 /* CurrentMangaPage.swift in Sources */,
 				5B45C06E26EF6B5600912BB9 /* NetManga.swift in Sources */,

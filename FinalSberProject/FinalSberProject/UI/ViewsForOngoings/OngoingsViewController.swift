@@ -32,13 +32,10 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         checkUserDefaults()
-        // coreDataManager.clearObjects()
-        // coreDataManager.printDataBase()
         someView.tableView.refreshControl = refreshControl
         displayLoader()
         setCurrentMangaListAfterButtonTap(pageType: ongoingPageType, listOfOngoing: setMangaList())
         tapOnButtons()
-
     }
     
     @objc func refresh(_ sender: Any) {
@@ -120,44 +117,38 @@ extension OngoingsViewController {
     func load(urlStr: String) {
         let loadQueue = DispatchQueue(label: "load")
         loadQueue.async { [weak self] in
-            guard let url = URL(string: urlStr) else { return }
-            self?.networkDataManager.deserializeMangaData(url: url) { items in
+            guard let url = URL(string: urlStr),
+                  let self = self else { return }
+            self.networkDataManager.deserializeMangaData(url: url) { items in
                 switch items {
                 case .failure(let error):
-                    guard let resManga = self?.coreDataManager.castLocalMangaToNetManga()
-                    else { return }
-                    self?.mangaList = resManga
-                    self?.ongoingPageType = .manga
+                    let resManga = self.coreDataManager.castLocalMangaToNetManga()
+                    let errorMessage = "Ошибка при работе с сетью + \(error.localizedDescription)"
+                    self.mangaList = resManga
+                    self.ongoingPageType = .manga
                     DispatchQueue.main.async {
-                        self?.someView.tableView.refreshControl = self?.refreshControl
-                        self?.someView.manhvaBut.isHidden = true
-                        self?.someView.manhuyaBut.isHidden = true
-                        self?.someView.mangaBut.setTitle("Офлайн", for: .normal)
-                        self?.someView.mangaBut.titleLabel?.font =
+                        self.someView.tableView.refreshControl = self.refreshControl
+                        self.someView.manhvaBut.isHidden = true
+                        self.someView.manhuyaBut.isHidden = true
+                        self.someView.mangaBut.setTitle("Офлайн", for: .normal)
+                        self.someView.mangaBut.titleLabel?.font =
                             UIFont(name: "SFProText-Medium", size: 16)
                     }
-                    self?.endLoad()
-                    print(error)
+                    self.endLoad()
+                    ShowErrors
+                        .showErrorMessage(message: errorMessage, on: self)
                 case .success(let mangaData):
-                    switch self?.ongoingPageType {
+                    switch self.ongoingPageType {
                     case .manga:
-                        self?.mangaList = mangaData
-                        self?.setDataInCoreData(mangas: mangaData)
-                        self?.offRefreshControll()
-                        self?.endLoad()
+                        self.mangaList = mangaData
                     case .manhva:
-                        self?.manhvaList = mangaData
-                        self?.setDataInCoreData(mangas: mangaData)
-                        self?.offRefreshControll()
-                        self?.endLoad()
+                        self.manhvaList = mangaData
                     case .manhuya:
-                        self?.manhuyaList = mangaData
-                        self?.setDataInCoreData(mangas: mangaData)
-                        self?.offRefreshControll()
-                        self?.endLoad()
-                    case .none:
-                        return
+                        self.manhuyaList = mangaData
                     }
+                    self.setDataInCoreData(mangas: mangaData)
+                    self.offRefreshControll()
+                    self.endLoad()
                 }
             }
         }
@@ -217,6 +208,16 @@ extension OngoingsViewController {
         let mangaList = setMangaList()
         currentMangaVC.currentManga = mangaList[indexPath.row]
         navigationController?.pushViewController(currentMangaVC, animated: true)
+    }
+}
+
+extension OngoingsViewController {
+    func showAlert(message: String) {
+        DispatchQueue.main.async { [weak self] in
+            let warningAlert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+            warningAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self?.present(warningAlert, animated: true, completion: nil)
+        }
     }
 }
 

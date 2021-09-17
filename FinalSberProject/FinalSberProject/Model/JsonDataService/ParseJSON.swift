@@ -51,7 +51,12 @@ class JSONParser {
             case .failure(let error):
                 completion(.failure(.warningRequest(message: error.localizedDescription)))
             case .success(let urlsPages):
-                guard let pages = self?.deserializeDataToURLsArray(jsonData: urlsPages) else { return }
+                guard let pages = self?.deserializeDataToURLsArray(jsonData: urlsPages),
+                      !pages.isEmpty
+                else {
+                    completion(.failure(.warningWithParseJson(message: "Array with pages is Empty")))
+                    return
+                }
 
                 print(pages)
 

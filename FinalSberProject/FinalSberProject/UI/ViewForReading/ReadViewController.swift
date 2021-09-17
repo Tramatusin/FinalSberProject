@@ -37,15 +37,25 @@ class ReadViewController: UIViewController {
               let chapter = currentChapter,
               let url = URL(string: urlForPage) else { return }
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            self?.dataManager.deserealizePagesData(code: code, chapterManga: chapter, url: url, completion: { result in
+            guard let self = self else { return }
+            self.dataManager.deserealizePagesData(code: code, chapterManga: chapter, url: url, completion: { result in
                 switch result {
                 case.failure(let error):
-                    print(error)
+                    let message = """
+                        Ошибка с получшение страниц, это значит,
+                        что выбранная вами манга сейчас недоступна
+                        Error: \(error)
+                    """
+                    DispatchQueue.main.async {
+                        self.disapearLoader()
+                    }
+                    ShowErrors
+                        .showErrorMessage(message: message, on: self)
                 case .success(let pages):
                     DispatchQueue.main.async {
-                        self?.pages = pages
-                        self?.readView.tableViewForPages.reloadData()
-                        self?.disapearLoader()
+                        self.pages = pages
+                        self.readView.tableViewForPages.reloadData()
+                        self.disapearLoader()
                     }
                 }
             })

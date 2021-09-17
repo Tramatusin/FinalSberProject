@@ -942,8 +942,8 @@
             filePath = "FinalSberProject/Model/JsonDataService/ParseJSON.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "deserializeDataToNetmanga(jsonData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,8 +958,8 @@
             filePath = "FinalSberProject/Model/JsonDataService/ParseJSON.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "deserializeDataToNetmanga(jsonData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -974,10 +974,10 @@
             filePath = "FinalSberProject/Model/JsonDataService/ParseJSON.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "deserializeDataToNetmanga(jsonData:)"
-            landmarkType = "7">
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "JSONParser"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -990,9 +990,9 @@
             filePath = "FinalSberProject/Model/JsonDataService/ParseJSON.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "deserializeDataToNetmanga(jsonData:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "getRatingsAndRatingCount(jsonData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1006,8 +1006,8 @@
             filePath = "FinalSberProject/Model/JsonDataService/ParseJSON.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "getRatingsAndRatingCount(jsonData:)"
             landmarkType = "7">
          </BreakpointContent>

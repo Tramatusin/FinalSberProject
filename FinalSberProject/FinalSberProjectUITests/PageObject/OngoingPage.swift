@@ -12,7 +12,6 @@ import XCTest
 class OngoingPage: Page {
     var app: XCUIApplication
 
-    private var manhvaButton: XCUIElement { return app.buttons["manhvaButton"] }
     private var ongoingTableView: XCUIElement {
         return app.tables.element(matching: .table, identifier: "OngoingTable")
     }
@@ -26,7 +25,6 @@ class OngoingPage: Page {
 
     func tapOnCellButton() -> CurrentMangaPage {
         if cellButton.waitForExistence(timeout: 15) {
-            manhvaButton.forceTapElement()
             cellButton.forceTapElement()
         }
         return CurrentMangaPage(app: app)

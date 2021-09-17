@@ -94,5 +94,5 @@ class CoreDataManagerImp: CoreDataManager {
         }
         return resultMangaList
     }
-    
+
 }

@@ -32,17 +32,10 @@ class LoadingViewController: UIViewController {
     lazy var imageOfAnimation: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.backgroundColor = .orange
         imageView.contentMode = .center
         imageView.sizeToFit()
         return imageView
     }()
-
-//    lazy var label: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +59,6 @@ class LoadingViewController: UIViewController {
             labelForwWarning.leftAnchor.constraint(equalTo: view.leftAnchor),
             labelForwWarning.rightAnchor.constraint(equalTo: view.rightAnchor),
             labelForwWarning.topAnchor.constraint(equalTo: imageOfAnimation.bottomAnchor, constant: 6)
-            // labelForwWarning.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor)
         ])
     }
 
@@ -86,13 +78,6 @@ class LoadingViewController: UIViewController {
             notNilImages.append(curImage)
         }
         return notNilImages
-    }
-
-    // TODO: added normal constraint
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        imageOfAnimation.center.x = view.bounds.width/4
-//        imageOfAnimation.center.y = view.bounds.height/4
     }
 
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserDefaultsManager: UserDefautlsProtocol {
+class UserDefaultsManager: UserDefautlsService {
     let defaults = UserDefaults.standard
 
     func setDataInUserDefaults(pageType: TypeOngoings, key: String) {

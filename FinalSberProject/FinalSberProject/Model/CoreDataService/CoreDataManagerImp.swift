@@ -35,7 +35,6 @@ class CoreDataManagerImp: CoreDataManager {
             localManga.chapters = Int16(manga.chapters?.count ?? 0)
             localManga.cover = manga.cover
             localManga.descriptions = manga.description
-            // print(localManga.descriptions)
             localManga.tags = manga.tags?.joined(separator: ", ")
             localManga.raiting = manga.ratingValue
             localManga.ratingCount = manga.ratingCount
@@ -78,8 +77,6 @@ class CoreDataManagerImp: CoreDataManager {
         viewContext.performAndWait {
             guard let mangas = try? (NSFetchRequest<LocalManga>(entityName: "LocalManga")).execute() else { return }
             for item in mangas {
-//                print(item.name)
-//                print(item.code)
                 guard let name = item.name,
                       let code = item.code,
                       let description = item.descriptions,
@@ -97,14 +94,5 @@ class CoreDataManagerImp: CoreDataManager {
         }
         return resultMangaList
     }
-
-//    func printDataBase() {
-//        let viewContext = mangaContainer.newBackgroundContext()
-//
-//        viewContext.performAndWait {
-//            guard let res = try? (NSFetchRequest<LocalManga>(entityName: "LocalManga")).execute()
-//            else { return }
-//            res.forEach({ print("name: \($0.name)") })
-//        }
-//    }
+    
 }

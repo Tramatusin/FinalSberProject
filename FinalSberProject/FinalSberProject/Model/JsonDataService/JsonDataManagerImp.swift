@@ -7,11 +7,11 @@
 
 import Foundation
 
-class JSONParser {
+class JsonDataManagerImp: JsonDataManager {
     private let networkManager: NetworkManager
 
-    init(session: Networking) {
-        self.networkManager = NetworkManagerImp(session: session)
+    init(session: Networking, jsonBuilder: JsonBuilderManager) {
+        self.networkManager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
     }
 
     func deserializeMangaData(url: URL,
@@ -59,25 +59,15 @@ class JSONParser {
                 }
 
                 print(pages)
-                let group = DispatchGroup()
-                let semaphore = DispatchSemaphore(value: 1)
                 for url in pages {
-                    semaphore.wait()
-                    group.enter()
-                    DispatchQueue.global(qos: .userInteractive).async {
-                        guard let resUrl = URL(string: url),
-                              let currentPage = try? Data(contentsOf: resUrl) else {
-                            completion(.success(pagesData))
-                            return }
-                        print("page")
-                        pagesData.append(currentPage)
-                        group.leave()
-                        semaphore.signal()
-                    }
+                    guard let resUrl = URL(string: url),
+                          let currentPage = try? Data(contentsOf: resUrl) else {
+                        completion(.success(pagesData))
+                        return }
+                    print("page")
+                    pagesData.append(currentPage)
                 }
-                group.notify(queue: .global()) {
-                    completion(.success(pagesData))
-                }
+                completion(.success(pagesData))
             }
         }
     }

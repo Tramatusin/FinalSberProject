@@ -14,7 +14,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let viewController = OngoingsViewController()
+        let jsonBuilder = JSONBuildManagerImp()
+        let jsonDataManager = JsonDataManagerImp(session: URLSession.shared,
+                                                 jsonBuilder: jsonBuilder)
+        let userDefaultsManager = UserDefaultsManager()
+        let coreDataManager = CoreDataManagerImp()
+        let viewController =
+            OngoingsViewController(dataManager: jsonDataManager,
+                                   userDefManager: userDefaultsManager, coreDataManager: coreDataManager)
         viewController.view.backgroundColor = .white
         let navController = UINavigationController(rootViewController: viewController)
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)

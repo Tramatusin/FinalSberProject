@@ -80,7 +80,6 @@ class ViewForDescription: UIView {
             labelForTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 4),
             labelForTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: -4),
             labelForTitle.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-//            labelForTitle.bottomAnchor.constraint(equalTo: labelForDescription.topAnchor, constant: -6),
 
             imageOfTitle.topAnchor.constraint(equalTo: labelForTitle.bottomAnchor, constant: 4),
             imageOfTitle.leftAnchor.constraint(equalTo: textViewForDescription.leftAnchor),
@@ -99,12 +98,10 @@ class ViewForDescription: UIView {
             labelForHeader.leftAnchor.constraint(equalTo: labelForTitle.leftAnchor),
             labelForHeader.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),
 
-//            labelForDescription.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9),
             textViewForDescription.topAnchor.constraint(equalTo: labelForHeader.bottomAnchor, constant: 2),
             textViewForDescription.leftAnchor.constraint(equalTo: labelForTitle.leftAnchor),
             textViewForDescription.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),
             textViewForDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
-//            labelForDescription.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 

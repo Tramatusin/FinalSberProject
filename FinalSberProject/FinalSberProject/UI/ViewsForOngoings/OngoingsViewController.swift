@@ -16,10 +16,22 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     private var searchManga: [NetManga] = []
     private let loadingVC = LoadingViewController()
     private let someView = ViewForListController()
-    private let networkDataManager = JSONParser(session: URLSession.shared)
-    private let userDef = UserDefaultsManager()
-    private let coreDataManager = CoreDataManagerImp()
+    private let networkDataManager: JsonDataManager
+    private let userDef: UserDefautlsService
+    private let coreDataManager: CoreDataManager
     private let refreshControl = UIRefreshControl()
+
+    init(dataManager: JsonDataManager, userDefManager: UserDefautlsService,
+         coreDataManager: CoreDataManager) {
+        self.networkDataManager = dataManager
+        self.userDef = userDefManager
+        self.coreDataManager = coreDataManager
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func loadView() {
         view = someView
@@ -32,12 +44,13 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         checkUserDefaults()
+        setupButtonTitleAfterStart()
         someView.tableView.refreshControl = refreshControl
         displayLoader()
         setCurrentMangaListAfterButtonTap(pageType: ongoingPageType, listOfOngoing: setMangaList())
         tapOnButtons()
     }
-    
+
     @objc func refresh(_ sender: Any) {
         displayLoader()
         load(urlStr: ongoingPageType.rawValue)
@@ -49,7 +62,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.endRefreshing()
     }
 
-    func tapOnButtons() {
+    private func tapOnButtons() {
         someView.tapOnMangaBut = { [weak self] in
             guard let self = self else { return }
             self.someView.mangaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
@@ -75,19 +88,18 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func setCurrentMangaListAfterButtonTap(pageType: TypeOngoings, listOfOngoing: [NetManga]) {
+    private func setCurrentMangaListAfterButtonTap(pageType: TypeOngoings, listOfOngoing: [NetManga]) {
         self.ongoingPageType = pageType
         userDef.setDataInUserDefaults(pageType: pageType, key: "type")
         if listOfOngoing.isEmpty {
             self.displayLoader()
             load(urlStr: pageType.rawValue)
-            // load(urlStr: "www.google.com")
             return
         }
         self.someView.tableView.reloadData()
     }
 
-    func setMangaList() -> [NetManga] {
+    private func setMangaList() -> [NetManga] {
         switch ongoingPageType {
         case .manga:
             return mangaList
@@ -98,23 +110,26 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func checkUserDefaults() {
+    private func checkUserDefaults() {
         if let pageType = userDef.readDataOnUserDefaults(key: "type") {
             ongoingPageType = pageType
-            switch pageType {
-            case .manga:
-                self.someView.mangaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
-            case .manhva:
-                self.someView.manhvaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
-            case .manhuya:
-                self.someView.manhuyaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
-            }
+        }
+    }
+
+    private func setupButtonTitleAfterStart() {
+        switch ongoingPageType {
+        case .manga:
+            self.someView.mangaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
+        case .manhva:
+            self.someView.manhvaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
+        case .manhuya:
+            self.someView.manhuyaBut.titleLabel?.font = UIFont(name: "SFProText-Medium", size: 16)
         }
     }
 }
 
 extension OngoingsViewController {
-    func load(urlStr: String) {
+    private func load(urlStr: String) {
         let loadQueue = DispatchQueue(label: "load")
         loadQueue.async { [weak self] in
             guard let url = URL(string: urlStr),
@@ -123,7 +138,7 @@ extension OngoingsViewController {
                 switch items {
                 case .failure(let error):
                     let resManga = self.coreDataManager.castLocalMangaToNetManga()
-                    let errorMessage = "Ошибка при работе с сетью + \(error.localizedDescription)"
+                    let errorMessage = "Ошибка при работе с сетью \(error)"
                     self.mangaList = resManga
                     self.ongoingPageType = .manga
                     DispatchQueue.main.async {
@@ -154,20 +169,20 @@ extension OngoingsViewController {
         }
     }
 
-    func endLoad() {
+    private func endLoad() {
         DispatchQueue.main.async {
             self.someView.tableView.reloadData()
             self.disapearLoader()
         }
     }
-    
-    func offRefreshControll() {
+
+    private func offRefreshControll() {
         DispatchQueue.main.async {
             self.someView.tableView.refreshControl = nil
         }
     }
 
-    func setDataInCoreData(mangas: [NetManga]) {
+    private func setDataInCoreData(mangas: [NetManga]) {
         mangas.forEach({ coreDataManager.writeObject(manga: $0) })
     }
 
@@ -208,16 +223,6 @@ extension OngoingsViewController {
         let mangaList = setMangaList()
         currentMangaVC.currentManga = mangaList[indexPath.row]
         navigationController?.pushViewController(currentMangaVC, animated: true)
-    }
-}
-
-extension OngoingsViewController {
-    func showAlert(message: String) {
-        DispatchQueue.main.async { [weak self] in
-            let warningAlert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
-            warningAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self?.present(warningAlert, animated: true, completion: nil)
-        }
     }
 }
 

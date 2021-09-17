@@ -15,8 +15,7 @@ class ReadViewController: UIViewController {
     var pages: [Data]?
     let readView = ViewForPages()
     let loadingVC = LoadingViewController()
-//    let networkManager = NetworkManagerImp(session: URLSession.shared)
-    let dataManager = JSONParser(session: URLSession.shared)
+    let dataManager = JsonDataManagerImp(session: URLSession.shared, jsonBuilder: JSONBuildManagerImp())
     var curImage: UIImage?
 
     override func loadView() {

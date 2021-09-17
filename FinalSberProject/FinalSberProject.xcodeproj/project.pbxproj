@@ -29,7 +29,7 @@
 		5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */; };
 		5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */; };
 		5B27FF2026CFBCA300374DD0 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */; };
-		5B27FF2526CFDBDB00374DD0 /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */; };
+		5B27FF2526CFDBDB00374DD0 /* JsonDataManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* JsonDataManagerImp.swift */; };
 		5B27FF2926D26ED100374DD0 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */; };
 		5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */; };
 		5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */; };
@@ -47,7 +47,7 @@
 		5B45C06F26EF6B6000912BB9 /* ViewForPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3326D39B8000374DD0 /* ViewForPages.swift */; };
 		5B45C07026EF6B6700912BB9 /* PagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3526D39BA300374DD0 /* PagesTableViewCell.swift */; };
 		5B45C07126EF6B6D00912BB9 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
-		5B45C07226EF6B7300912BB9 /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */; };
+		5B45C07226EF6B7300912BB9 /* JsonDataManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* JsonDataManagerImp.swift */; };
 		5B45C07326EF6B7D00912BB9 /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
 		5B45C07426EF6BA600912BB9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D4D26CA6FDA00719B28 /* NetworkManager.swift */; };
 		5B45C07526EF6BAE00912BB9 /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */; };
@@ -61,15 +61,16 @@
 		5B45C08926F515A900912BB9 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF3026D39A2200374DD0 /* ReadViewController.swift */; };
 		5B45C08C26F5167600912BB9 /* ShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08B26F5167600912BB9 /* ShowErrors.swift */; };
 		5B45C08D26F5210400912BB9 /* ShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08B26F5167600912BB9 /* ShowErrors.swift */; };
+		5B45C08F26F5388C00912BB9 /* JsonDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45C08E26F5388C00912BB9 /* JsonDataManager.swift */; };
 		5B62F41426D5007E007675EB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41326D5007E007675EB /* LoadingViewController.swift */; };
 		5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41526D50AAB007675EB /* LoaderManager.swift */; };
 		5B62F41B26D7A052007675EB /* TypeOngoings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41A26D7A052007675EB /* TypeOngoings.swift */; };
-		5B62F41E26D7CAAC007675EB /* UserDefautlsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41D26D7CAAC007675EB /* UserDefautlsProtocol.swift */; };
+		5B62F41E26D7CAAC007675EB /* UserDefautlsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41D26D7CAAC007675EB /* UserDefautlsService.swift */; };
 		5B62F42026D7CAC2007675EB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */; };
 		5BBE543826E7FFC00008EEEF /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE543726E7FFC00008EEEF /* NetworkManagerMock.swift */; };
 		5BBE543A26E80EF70008EEEF /* NetManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5826CA8E9F00719B28 /* NetManga.swift */; };
 		5BBE543B26E80EFB0008EEEF /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */; };
-		5BBE543C26E80FB60008EEEF /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */; };
+		5BBE543C26E80FB60008EEEF /* JsonDataManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2426CFDBDB00374DD0 /* JsonDataManagerImp.swift */; };
 		5BBE543F26E810590008EEEF /* JSONBuildManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */; };
 		5BBE544026E8109A0008EEEF /* JsonBuildManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */; };
 		5BBE544126E813FD0008EEEF /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9D5026CA705400719B28 /* NetworkManagerImp.swift */; };
@@ -124,7 +125,7 @@
 		5B27FF1B26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterOfMangaTableViewCell.swift; sourceTree = "<group>"; };
 		5B27FF1D26CE5FCF00374DD0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5B27FF1F26CFBCA300374DD0 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
-		5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
+		5B27FF2426CFDBDB00374DD0 /* JsonDataManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataManagerImp.swift; sourceTree = "<group>"; };
 		5B27FF2826D26ED100374DD0 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		5B27FF2A26D26F0C00374DD0 /* ViewForDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForDescription.swift; sourceTree = "<group>"; };
 		5B27FF2C26D2845C00374DD0 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
@@ -141,10 +142,11 @@
 		5B45C07E26EFEBA300912BB9 /* CurrentMangaPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMangaPage.swift; sourceTree = "<group>"; };
 		5B45C08026F128F900912BB9 /* DescriptionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPage.swift; sourceTree = "<group>"; };
 		5B45C08B26F5167600912BB9 /* ShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrors.swift; sourceTree = "<group>"; };
+		5B45C08E26F5388C00912BB9 /* JsonDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataManager.swift; sourceTree = "<group>"; };
 		5B62F41326D5007E007675EB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5B62F41526D50AAB007675EB /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		5B62F41A26D7A052007675EB /* TypeOngoings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOngoings.swift; sourceTree = "<group>"; };
-		5B62F41D26D7CAAC007675EB /* UserDefautlsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsProtocol.swift; sourceTree = "<group>"; };
+		5B62F41D26D7CAAC007675EB /* UserDefautlsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsService.swift; sourceTree = "<group>"; };
 		5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		5BBE543726E7FFC00008EEEF /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		5BD5D5D926CD4A80009DED79 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
@@ -350,7 +352,8 @@
 			children = (
 				5B27FF2E26D3982D00374DD0 /* JsonBuildManager.swift */,
 				5B1A9D5226CA719200719B28 /* JSONBuildManagerImp.swift */,
-				5B27FF2426CFDBDB00374DD0 /* ParseJSON.swift */,
+				5B45C08E26F5388C00912BB9 /* JsonDataManager.swift */,
+				5B27FF2426CFDBDB00374DD0 /* JsonDataManagerImp.swift */,
 			);
 			path = JsonDataService;
 			sourceTree = "<group>";
@@ -438,7 +441,7 @@
 		5B62F41C26D7CA91007675EB /* UserDefautsService */ = {
 			isa = PBXGroup;
 			children = (
-				5B62F41D26D7CAAC007675EB /* UserDefautlsProtocol.swift */,
+				5B62F41D26D7CAAC007675EB /* UserDefautlsService.swift */,
 				5B62F41F26D7CAC2007675EB /* UserDefaultsManager.swift */,
 			);
 			path = UserDefautsService;
@@ -606,12 +609,13 @@
 			files = (
 				5B1A9D4E26CA6FDA00719B28 /* NetworkManager.swift in Sources */,
 				5B1A9D1A26CA6C4A00719B28 /* OngoingsViewController.swift in Sources */,
-				5B62F41E26D7CAAC007675EB /* UserDefautlsProtocol.swift in Sources */,
+				5B62F41E26D7CAAC007675EB /* UserDefautlsService.swift in Sources */,
 				5B062E6726DB9DCA0042F123 /* Manga+CoreDataClass.swift in Sources */,
 				5B27FF1C26CE4C7E00374DD0 /* ChapterOfMangaTableViewCell.swift in Sources */,
 				5B1A9D5926CA8E9F00719B28 /* NetManga.swift in Sources */,
 				5B27FF1E26CE5FCF00374DD0 /* GradientView.swift in Sources */,
 				5B27FF2B26D26F0C00374DD0 /* ViewForDescription.swift in Sources */,
+				5B45C08F26F5388C00912BB9 /* JsonDataManager.swift in Sources */,
 				5B62F41626D50AAB007675EB /* LoaderManager.swift in Sources */,
 				5B45C08C26F5167600912BB9 /* ShowErrors.swift in Sources */,
 				5B27FF3626D39BA300374DD0 /* PagesTableViewCell.swift in Sources */,
@@ -636,7 +640,7 @@
 				5B27FF2D26D2845C00374DD0 /* NetworkErrors.swift in Sources */,
 				5B27FF3426D39B8000374DD0 /* ViewForPages.swift in Sources */,
 				5B1A9D1826CA6C4A00719B28 /* SceneDelegate.swift in Sources */,
-				5B27FF2526CFDBDB00374DD0 /* ParseJSON.swift in Sources */,
+				5B27FF2526CFDBDB00374DD0 /* JsonDataManagerImp.swift in Sources */,
 				5B27FF2F26D3982D00374DD0 /* JsonBuildManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,7 +657,7 @@
 				5B1A9D3026CA6C4B00719B28 /* FinalSberProjectTests.swift in Sources */,
 				5BBE544126E813FD0008EEEF /* NetworkManagerImp.swift in Sources */,
 				5BBE544026E8109A0008EEEF /* JsonBuildManager.swift in Sources */,
-				5BBE543C26E80FB60008EEEF /* ParseJSON.swift in Sources */,
+				5BBE543C26E80FB60008EEEF /* JsonDataManagerImp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,7 +677,7 @@
 				5B45C08126F128F900912BB9 /* DescriptionPage.swift in Sources */,
 				5B1A9D3B26CA6C4B00719B28 /* FinalSberProjectUITests.swift in Sources */,
 				5B45C06F26EF6B6000912BB9 /* ViewForPages.swift in Sources */,
-				5B45C07226EF6B7300912BB9 /* ParseJSON.swift in Sources */,
+				5B45C07226EF6B7300912BB9 /* JsonDataManagerImp.swift in Sources */,
 				5B45C07626EF6BB600912BB9 /* NetworkErrors.swift in Sources */,
 				5B45C07026EF6B6700912BB9 /* PagesTableViewCell.swift in Sources */,
 				5B45C07826EF6BD700912BB9 /* JsonBuildManager.swift in Sources */,
@@ -870,7 +874,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NXXWT7P3XG;
 				INFOPLIST_FILE = FinalSberProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -890,7 +894,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NXXWT7P3XG;
 				INFOPLIST_FILE = FinalSberProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

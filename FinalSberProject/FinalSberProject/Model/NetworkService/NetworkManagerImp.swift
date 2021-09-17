@@ -8,12 +8,12 @@
 import Foundation
 
 class NetworkManagerImp: NetworkManager {
-    private let buildJson = JSONBuildManagerImp()
+    private let buildJson: JsonBuilderManager
     private let session: Networking
-//    let parseJson = JSONParser()
 
-    init(session: Networking) {
+    init(session: Networking, jsonBuilder: JsonBuilderManager) {
         self.session = session
+        self.buildJson = jsonBuilder
     }
 
     func getMangaList(url: URL, bucket: Int, completion: @escaping (Result<Data, NetworkErrors>) -> Void) {

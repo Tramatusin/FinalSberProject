@@ -79,8 +79,6 @@ class MangaTitleTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "book.circle.fill")
         imageView.contentMode = .scaleAspectFit
-//        imageView.contentVerticalAlignment = .fill
-//        imageView.contentHorizontalAlignment = .fill
         imageView.tintColor = UIColor(red: 0.949, green: 0.6, blue: 0.29, alpha: 1)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

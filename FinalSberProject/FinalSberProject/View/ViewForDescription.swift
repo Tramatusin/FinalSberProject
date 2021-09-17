@@ -22,16 +22,6 @@ class ViewForDescription: UIView {
         return label
     }()
 
-//    lazy var labelForDescription: UITextView = {
-//        let label = UITextView()
-//        label.font = UIFont(name: "SFProText-Medium", size: 16)
-//        label.textColor = .black
-//        label.textAlignment = .natural
-//        label.backgroundColor = .blue
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
     lazy var textViewForDescription: UITextView = {
         let text = UITextView()
         text.font = UIFont(name: "SFProText-Medium", size: 16)
@@ -40,7 +30,7 @@ class ViewForDescription: UIView {
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
-    
+
     lazy var imageOfTitle: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -49,7 +39,7 @@ class ViewForDescription: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+
     lazy var labelForRating: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "SFProText-Medium", size: 15)
@@ -57,7 +47,7 @@ class ViewForDescription: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     lazy var labelForRatingCount: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "SFProText-Medium", size: 16)
@@ -67,7 +57,7 @@ class ViewForDescription: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     lazy var labelForHeader: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "SFProText-Medium", size: 19)
@@ -91,19 +81,20 @@ class ViewForDescription: UIView {
             labelForTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: -4),
             labelForTitle.topAnchor.constraint(equalTo: topAnchor, constant: 4),
 //            labelForTitle.bottomAnchor.constraint(equalTo: labelForDescription.topAnchor, constant: -6),
-            
+
             imageOfTitle.topAnchor.constraint(equalTo: labelForTitle.bottomAnchor, constant: 4),
             imageOfTitle.leftAnchor.constraint(equalTo: textViewForDescription.leftAnchor),
             imageOfTitle.widthAnchor.constraint(equalToConstant: 100),
             imageOfTitle.heightAnchor.constraint(equalToConstant: 150),
-            
+
             labelForRatingCount.bottomAnchor.constraint(equalTo: imageOfTitle.bottomAnchor),
             labelForRatingCount.leftAnchor.constraint(equalTo: imageOfTitle.rightAnchor, constant: 13),
-            
+            labelForRatingCount.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),
+
             labelForRating.bottomAnchor.constraint(equalTo: labelForRatingCount.topAnchor,
                                                    constant: -4),
             labelForRating.leftAnchor.constraint(equalTo: labelForRatingCount.leftAnchor),
-            
+
             labelForHeader.topAnchor.constraint(equalTo: imageOfTitle.bottomAnchor, constant: 8),
             labelForHeader.leftAnchor.constraint(equalTo: labelForTitle.leftAnchor),
             labelForHeader.rightAnchor.constraint(equalTo: labelForTitle.rightAnchor),

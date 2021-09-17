@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class Container {
-    
+
     lazy var mangaContainer: NSPersistentContainer = {
         var modelURL = Bundle(for: type(of: self))
             .url(forResource: "FinalSberProject", withExtension: "momd")!

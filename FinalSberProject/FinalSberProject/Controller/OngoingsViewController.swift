@@ -19,13 +19,14 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     private let networkDataManager = JSONParser(session: URLSession.shared)
     private let userDef = UserDefaultsManager()
     private let coreDataManager = CoreDataManagerImp()
+    private let refreshControl = UIRefreshControl()
 
     override func loadView() {
         view = someView
-        navigationItem.titleView = someView.searchBar
-        someView.searchBar.delegate = self
+        navigationItem.title = "Онгоинги"
         someView.tableView.dataSource = self
         someView.tableView.delegate = self
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
 
     override func viewDidLoad() {
@@ -33,10 +34,22 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         checkUserDefaults()
         // coreDataManager.clearObjects()
         // coreDataManager.printDataBase()
+        someView.tableView.refreshControl = refreshControl
         displayLoader()
         setCurrentMangaListAfterButtonTap(pageType: ongoingPageType, listOfOngoing: setMangaList())
         tapOnButtons()
 
+    }
+    
+    @objc func refresh(_ sender: Any) {
+        displayLoader()
+        load(urlStr: ongoingPageType.rawValue)
+        someView.manhvaBut.isHidden = false
+        someView.manhuyaBut.isHidden = false
+        someView.mangaBut.setTitle("Манга", for: .normal)
+        someView.manhuyaBut.titleLabel?.font = UIFont(name: "SFProText-Light", size: 14)
+        someView.manhvaBut.titleLabel?.font = UIFont(name: "SFProText-Light", size: 14)
+        refreshControl.endRefreshing()
     }
 
     func tapOnButtons() {
@@ -104,9 +117,9 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 extension OngoingsViewController {
-
     func load(urlStr: String) {
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+        let loadQueue = DispatchQueue(label: "load")
+        loadQueue.async { [weak self] in
             guard let url = URL(string: urlStr) else { return }
             self?.networkDataManager.deserializeMangaData(url: url) { items in
                 switch items {
@@ -116,6 +129,7 @@ extension OngoingsViewController {
                     self?.mangaList = resManga
                     self?.ongoingPageType = .manga
                     DispatchQueue.main.async {
+                        self?.someView.tableView.refreshControl = self?.refreshControl
                         self?.someView.manhvaBut.isHidden = true
                         self?.someView.manhuyaBut.isHidden = true
                         self?.someView.mangaBut.setTitle("Офлайн", for: .normal)
@@ -129,14 +143,17 @@ extension OngoingsViewController {
                     case .manga:
                         self?.mangaList = mangaData
                         self?.setDataInCoreData(mangas: mangaData)
+                        self?.offRefreshControll()
                         self?.endLoad()
                     case .manhva:
                         self?.manhvaList = mangaData
                         self?.setDataInCoreData(mangas: mangaData)
+                        self?.offRefreshControll()
                         self?.endLoad()
                     case .manhuya:
                         self?.manhuyaList = mangaData
                         self?.setDataInCoreData(mangas: mangaData)
+                        self?.offRefreshControll()
                         self?.endLoad()
                     case .none:
                         return
@@ -152,6 +169,12 @@ extension OngoingsViewController {
             self.disapearLoader()
         }
     }
+    
+    func offRefreshControll() {
+        DispatchQueue.main.async {
+            self.someView.tableView.refreshControl = nil
+        }
+    }
 
     func setDataInCoreData(mangas: [NetManga]) {
         mangas.forEach({ coreDataManager.writeObject(manga: $0) })
@@ -163,7 +186,7 @@ extension OngoingsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return setMangaList().count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath)
                 as? MangaTitleTableViewCell
@@ -193,21 +216,7 @@ extension OngoingsViewController {
         let currentMangaVC = MangaViewController()
         let mangaList = setMangaList()
         currentMangaVC.currentManga = mangaList[indexPath.row]
-        // print(mangaList[indexPath.row].code)
         navigationController?.pushViewController(currentMangaVC, animated: true)
-    }
-}
-
-extension OngoingsViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let mangas = setMangaList()
-
-        searchManga = mangas.filter({ item in
-            guard let name = item.name else { return false }
-            return name.lowercased().prefix(searchText.count) == searchText.lowercased()
-        })
-
-        someView.tableView.reloadData()
     }
 }
 

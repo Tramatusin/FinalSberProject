@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class MangaTitleTableViewCell: UITableViewCell {
-    
+
     lazy var viewForItems: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -107,7 +107,7 @@ class MangaTitleTableViewCell: UITableViewCell {
             imageOfTitle.leftAnchor.constraint(equalTo: viewForItems.leftAnchor, constant: 8),
             imageOfTitle.heightAnchor.constraint(equalToConstant: 120),
             imageOfTitle.widthAnchor.constraint(equalToConstant: 80),
-            
+
             labelOfTitle.topAnchor.constraint(equalTo: imageOfTitle.topAnchor),
             labelOfTitle.leftAnchor.constraint(equalTo: imageOfTitle.rightAnchor, constant: 13),
             labelOfTitle.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -50),
@@ -153,14 +153,14 @@ class MangaTitleTableViewCell: UITableViewCell {
         viewForItems.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         viewForItems.layer.shadowPath = UIBezierPath(roundedRect: viewForItems.bounds, cornerRadius: 20).cgPath
     }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white
         self.selectionStyle = .none
         setupConstraint()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

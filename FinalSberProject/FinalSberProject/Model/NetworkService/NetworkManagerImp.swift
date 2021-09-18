@@ -16,6 +16,7 @@ class NetworkManagerImp: NetworkManager {
         self.buildJson = jsonBuilder
     }
 
+    // Метод получающий JSON из манг
     func getMangaList(url: URL, bucket: Int, completion: @escaping (Result<Data, NetworkErrors>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -37,6 +38,7 @@ class NetworkManagerImp: NetworkManager {
         }.resume()
     }
 
+    // Метод получающий JSON из страниц
     func getPagesList(code: String, chapterManga: Chapters,
                       url: URL, completion: @escaping (Result<Data, NetworkErrors>) -> Void) {
         guard let volume = chapterManga.volume,

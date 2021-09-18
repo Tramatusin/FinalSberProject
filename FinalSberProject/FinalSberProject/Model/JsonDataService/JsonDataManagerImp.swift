@@ -14,6 +14,10 @@ class JsonDataManagerImp: JsonDataManager {
         self.networkManager = NetworkManagerImp(session: session, jsonBuilder: jsonBuilder)
     }
 
+    /// Метод для десериализации пакетов манги, после похода в сеть
+    /// - Parameters:
+    ///   - url: URL для запроса
+    ///   - completion: замыкание возвращающие массив из манг или ошибку
     func deserializeMangaData(url: URL,
                               completion: @escaping (Result<[NetManga], NetworkErrors>) -> Void) {
         var resultMangaList: [NetManga] = []
@@ -41,6 +45,12 @@ class JsonDataManagerImp: JsonDataManager {
         }
     }
 
+    /// Метод для десериализации страниц, после похода в сеть
+    /// - Parameters:
+    ///   - code: Уникальный код манги
+    ///   - chapterManga: Объект части манги
+    ///   - url: URL для запроса
+    ///   - completion: замыкание возвращающие массив из данных или ошибку
     func deserealizePagesData(code: String, chapterManga: Chapters,
                               url: URL, completion: @escaping (Result<[Data], NetworkErrors>) -> Void) {
         var pagesData: [Data] = []
@@ -72,6 +82,9 @@ class JsonDataManagerImp: JsonDataManager {
         }
     }
 
+    /// Метод для десериализации JSON данных в массив URL-ов для картинок
+    /// - Parameter jsonData: JSON данные
+    /// - Returns: массив URL-ов в строковом типе
     func deserializeDataToURLsArray(jsonData: Data) -> [String] {
         guard let json = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any],
               let pages = json["pages"] as? [String]
@@ -82,6 +95,9 @@ class JsonDataManagerImp: JsonDataManager {
         return pages
     }
 
+    /// Метод для десериализации JSON данных в массив манги
+    /// - Parameter jsonData: JSON данные
+    /// - Returns: Массив манги
     func deserializeDataToNetmanga(jsonData: Data) -> [NetManga] {
         let jsonDecoder = JSONDecoder()
         guard
@@ -99,6 +115,9 @@ class JsonDataManagerImp: JsonDataManager {
         return mangas
     }
 
+    /// Метод для получения значений рейтинга и количества проголосовавших
+    /// - Parameter jsonData: Данные в json формате
+    /// - Returns: Кортеж с рейтингом и количеством проголосовавших пользователей
     func getRatingsAndRatingCount(jsonData: Data) -> (ratings: [String], ratingsCount: [String])? {
         guard let jsonForRating = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any],
               let jsonMangas = jsonForRating["mangas"] as? [Any] else { return nil }

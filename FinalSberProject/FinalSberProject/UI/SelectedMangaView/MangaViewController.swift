@@ -25,6 +25,7 @@ class MangaViewController: UIViewController {
         navigationItem.title = currentManga?.name
     }
 
+    // метод устанавливающий действие кнопки "Описание"
     func setTapOnDescrip() {
         mangaView.tapOnDecription = { [weak self] in
             let descriptionVC = DescriptionViewController()

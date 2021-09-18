@@ -12,6 +12,7 @@ class CoreDataManagerImp: CoreDataManager {
 
     let mangaContainer = Container().mangaContainer
 
+    // Удаление всех объектов
     func clearObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LocalManga")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
@@ -23,6 +24,7 @@ class CoreDataManagerImp: CoreDataManager {
         print("CLEAR")
     }
 
+    // Запись объекта
     func writeObject(manga: NetManga) {
         let writeContext = mangaContainer.newBackgroundContext()
 
@@ -43,6 +45,7 @@ class CoreDataManagerImp: CoreDataManager {
         }
     }
 
+    // Получение объектов
     func fetchResult() -> [LocalManga]? {
         let viewContext = mangaContainer.newBackgroundContext()
         var resLocalManga: [LocalManga]? = []
@@ -57,6 +60,7 @@ class CoreDataManagerImp: CoreDataManager {
         return resLocalManga
     }
 
+    //  Проверка на то, содержится ли манга в хранилище
     func containsCurrentMangaInCoreData(manga: NetManga) -> Bool {
         let viewContext = mangaContainer.newBackgroundContext()
         var flag = false
@@ -70,6 +74,7 @@ class CoreDataManagerImp: CoreDataManager {
         return flag
     }
 
+    // Перевод объекта манги в объект манги используемой в приложении 
     func castLocalMangaToNetManga() -> [NetManga] {
         var resultMangaList: [NetManga] = []
         let viewContext = mangaContainer.newBackgroundContext()

@@ -31,6 +31,7 @@ class ReadViewController: UIViewController {
         loadPages()
     }
 
+    // Метод загружающий страницы и отображающий ошибки
     func loadPages() {
         guard let code = currentManga?.code,
               let chapter = currentChapter,
@@ -71,6 +72,8 @@ class ReadViewController: UIViewController {
 
 }
 
+// MARK: - Методы таблицы
+
 extension ReadViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         pages?.count ?? 1
@@ -100,6 +103,8 @@ extension ReadViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
+
+// MARK: - Методы лоадера
 
 extension ReadViewController: LoaderManager {
 

@@ -50,6 +50,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         tapOnButtons()
     }
 
+    // Метод для refreshController
     @objc func refresh(_ sender: Any) {
         displayLoader()
         load(urlStr: ongoingPageType.rawValue)
@@ -61,6 +62,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.endRefreshing()
     }
 
+    // Метод установки действий кнопкам категорий
     private func tapOnButtons() {
         someView.tapOnMangaBut = { [weak self] in
             guard let self = self else { return }
@@ -87,6 +89,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
+    // Метод отображающий в таблицу необходимый список манги
     private func setCurrentMangaListAfterButtonTap(pageType: TypeOngoings, listOfOngoing: [NetManga]) {
         self.ongoingPageType = pageType
         userDef.setDataInUserDefaults(pageType: pageType, key: "type")
@@ -127,6 +130,7 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
 }
 
+// MARK: - Методы работы с сетью и обработкой ошибок
 extension OngoingsViewController {
     private func load(urlStr: String) {
         let loadQueue = DispatchQueue(label: "load")
@@ -187,6 +191,7 @@ extension OngoingsViewController {
 
 }
 
+// MARK: - Методы таблицы
 extension OngoingsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return setMangaList().count
@@ -226,6 +231,7 @@ extension OngoingsViewController {
     }
 }
 
+// MARK: - Методы лоадера
 extension OngoingsViewController: LoaderManager {
     func displayLoader() {
         self.addChild(loadingVC)

@@ -8,6 +8,10 @@
 import Foundation
 
 class JSONBuildManagerImp: JsonBuilderManager {
+
+    /// Метод для сборки JSON для post-запроса на получение манги
+    /// - Parameter bucketNum: номер пакета загрузки
+    /// - Returns: возвращает готовый JSON в Data типе
     func buildJSONForMangaBucket(bucketNum: Int) -> Data? {
         let json: [String: Any] =
             ["batch_num": bucketNum]
@@ -19,6 +23,13 @@ class JSONBuildManagerImp: JsonBuilderManager {
         return nil
     }
 
+    ///  Метод для сборки JSON для post-запроса на получение страниц
+    /// - Parameters:
+    ///   - code: кодовое название манги
+    ///   - volume:  том
+    ///   - chapter:  часть
+    ///   - page: страница
+    /// - Returns: возвращает готовый JSON в Data типе
     func buildJSONForMangaPages(code: String, volume: Int, chapter: Double, page: Int) -> Data? {
         let json: [String: Any] =
             ["code": code,

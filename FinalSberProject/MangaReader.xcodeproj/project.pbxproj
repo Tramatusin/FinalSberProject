@@ -224,6 +224,9 @@
 		5B1A9D1426CA6C4A00719B28 /* FinalSberProject */ = {
 			isa = PBXGroup;
 			children = (
+				5B1A9D2626CA6C4B00719B28 /* Info.plist */,
+				5B1A9D2126CA6C4B00719B28 /* Assets.xcassets */,
+				5B1A9D1E26CA6C4A00719B28 /* FinalSberProject.xcdatamodeld */,
 				5B45C09426F6512600912BB9 /* Application */,
 				5B284B2D26CC20CC00A44DBF /* Resources */,
 				5B1A9D4826CA6C5E00719B28 /* Model */,
@@ -441,10 +444,7 @@
 			children = (
 				5B1A9D1526CA6C4A00719B28 /* AppDelegate.swift */,
 				5B1A9D1726CA6C4A00719B28 /* SceneDelegate.swift */,
-				5B1A9D2126CA6C4B00719B28 /* Assets.xcassets */,
 				5B1A9D2326CA6C4B00719B28 /* LaunchScreen.storyboard */,
-				5B1A9D2626CA6C4B00719B28 /* Info.plist */,
-				5B1A9D1E26CA6C4A00719B28 /* FinalSberProject.xcdatamodeld */,
 			);
 			path = Application;
 			sourceTree = "<group>";

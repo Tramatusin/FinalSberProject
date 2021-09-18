@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
                BuildableName = "FinalSberProject.app"
                BlueprintName = "FinalSberProject"
-               ReferencedContainer = "container:FinalSberProject.xcodeproj">
+               ReferencedContainer = "container:MangaReader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
             BuildableName = "FinalSberProject.app"
             BlueprintName = "FinalSberProject"
-            ReferencedContainer = "container:FinalSberProject.xcodeproj">
+            ReferencedContainer = "container:MangaReader.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "5B1A9D2A26CA6C4B00719B28"
                BuildableName = "FinalSberProjectTests.xctest"
                BlueprintName = "FinalSberProjectTests"
-               ReferencedContainer = "container:FinalSberProject.xcodeproj">
+               ReferencedContainer = "container:MangaReader.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -56,7 +56,7 @@
                BlueprintIdentifier = "5B1A9D3526CA6C4B00719B28"
                BuildableName = "FinalSberProjectUITests.xctest"
                BlueprintName = "FinalSberProjectUITests"
-               ReferencedContainer = "container:FinalSberProject.xcodeproj">
+               ReferencedContainer = "container:MangaReader.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
             BuildableName = "FinalSberProject.app"
             BlueprintName = "FinalSberProject"
-            ReferencedContainer = "container:FinalSberProject.xcodeproj">
+            ReferencedContainer = "container:MangaReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -95,7 +95,7 @@
             BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
             BuildableName = "FinalSberProject.app"
             BlueprintName = "FinalSberProject"
-            ReferencedContainer = "container:FinalSberProject.xcodeproj">
+            ReferencedContainer = "container:MangaReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

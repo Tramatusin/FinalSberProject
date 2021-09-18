@@ -40,11 +40,19 @@ class ReadViewController: UIViewController {
             self.dataManager.deserealizePagesData(code: code, chapterManga: chapter, url: url, completion: { result in
                 switch result {
                 case.failure(let error):
-                    let message = """
-                        Ошибка с получшение страниц, это значит,
-                        что выбранная вами манга сейчас недоступна
-                        Error: \(error)
-                    """
+                    let message: String
+                    switch error {
+                    case .warningRequest(message: let mes):
+                        message = "Ошибка с загрузкой данных, попробуйте снова \(mes)"
+                    case .warningWithParseJson(message: let mes):
+                        message = """
+                            Ошибка с получшение страниц, это значит,
+                            что выбранная вами манга сейчас недоступна
+                            Error: \(mes)
+                        """
+                    case .warningResponse(message: let mes):
+                        message = "Ошибка с запросом \(mes)"
+                    }
                     DispatchQueue.main.async {
                         self.disapearLoader()
                     }

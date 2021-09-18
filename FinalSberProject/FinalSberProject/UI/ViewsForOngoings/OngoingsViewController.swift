@@ -13,7 +13,6 @@ class OngoingsViewController: UIViewController, UITableViewDelegate, UITableView
     private var manhvaList: [NetManga] = []
     private var manhuyaList: [NetManga] = []
     private var ongoingPageType: TypeOngoings = .manhva
-    private var searchManga: [NetManga] = []
     private let loadingVC = LoadingViewController()
     private let someView = ViewForListController()
     private let networkDataManager: JsonDataManager
@@ -194,12 +193,13 @@ extension OngoingsViewController {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath)
-                as? MangaTitleTableViewCell
-        else { return tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath) }
         let curMangaList: [NetManga] = setMangaList()
-        let indexOfManga = curMangaList[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath)
+                as? MangaTitleTableViewCell,
+              !curMangaList.isEmpty
+        else { return tableView.dequeueReusableCell(withIdentifier: "mangaCell", for: indexPath) }
         cell.accessibilityLabel = "cell_\(indexPath.row)"
+        let indexOfManga = curMangaList[indexPath.row]
 
         guard let dataImageStr = indexOfManga.cover,
               let finalData = Data(base64Encoded: dataImageStr, options: .ignoreUnknownCharacters),

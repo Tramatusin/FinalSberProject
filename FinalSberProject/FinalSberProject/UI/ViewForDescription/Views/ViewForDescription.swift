@@ -26,6 +26,7 @@ class ViewForDescription: UIView {
         let text = UITextView()
         text.font = UIFont(name: "SFProText-Medium", size: 16)
         text.textColor = .black
+        text.backgroundColor = .white
         text.isEditable = false
         text.translatesAutoresizingMaskIntoConstraints = false
         return text

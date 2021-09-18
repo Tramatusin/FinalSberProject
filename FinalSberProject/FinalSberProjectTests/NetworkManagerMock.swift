@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import FinalSberProject
+@testable import MangaRead
 
 class URLSessionDataTaskMock: URLSessionDataTask {
     private let closure: () -> Void

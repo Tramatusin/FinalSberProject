@@ -7,7 +7,7 @@
 
 import XCTest
 import SnapshotTesting
-@testable import FinalSberProject
+@testable import MangaRead
 
 class FinalSberProjectUITests: XCTestCase {
 
@@ -24,7 +24,7 @@ class FinalSberProjectUITests: XCTestCase {
             })
     }
 
-    func testReadViewController() throws {
+    func testForReadViewController() throws {
         let readVC = ReadViewController()
         assertSnapshot(matching: readVC, as: .image(on: .iPhoneSe))
     }

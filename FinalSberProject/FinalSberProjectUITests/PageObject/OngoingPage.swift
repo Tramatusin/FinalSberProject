@@ -7,7 +7,6 @@
 
 import Foundation
 import XCTest
-@testable import FinalSberProject
 
 class OngoingPage: Page {
     var app: XCUIApplication
@@ -24,7 +23,7 @@ class OngoingPage: Page {
     }
 
     func tapOnCellButton() -> CurrentMangaPage {
-        if cellButton.waitForExistence(timeout: 15) {
+        if cellButton.waitForExistence(timeout: 30) {
             cellButton.forceTapElement()
         }
         return CurrentMangaPage(app: app)

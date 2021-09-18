@@ -105,7 +105,7 @@
 		5B062E6B26DB9EC60042F123 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5B062E6D26DBA8D50042F123 /* CoreDataManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerImp.swift; sourceTree = "<group>"; };
 		5B062E6F26DBAA520042F123 /* CoreDataPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainer.swift; sourceTree = "<group>"; };
-		5B1A9D1226CA6C4A00719B28 /* FinalSberProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalSberProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B1A9D1226CA6C4A00719B28 /* MangaRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1A9D1526CA6C4A00719B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B1A9D1726CA6C4A00719B28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B1A9D1926CA6C4A00719B28 /* OngoingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingsViewController.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		5B1A9D1326CA6C4A00719B28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B1A9D1226CA6C4A00719B28 /* FinalSberProject.app */,
+				5B1A9D1226CA6C4A00719B28 /* MangaRead.app */,
 				5B1A9D2B26CA6C4B00719B28 /* FinalSberProjectTests.xctest */,
 				5B1A9D3626CA6C4B00719B28 /* FinalSberProjectUITests.xctest */,
 			);
@@ -468,7 +468,7 @@
 			);
 			name = FinalSberProject;
 			productName = FinalSberProject;
-			productReference = 5B1A9D1226CA6C4A00719B28 /* FinalSberProject.app */;
+			productReference = 5B1A9D1226CA6C4A00719B28 /* MangaRead.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5B1A9D2A26CA6C4B00719B28 /* FinalSberProjectTests */ = {
@@ -531,7 +531,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B1A9D0D26CA6C4A00719B28 /* Build configuration list for PBXProject "FinalSberProject" */;
+			buildConfigurationList = 5B1A9D0D26CA6C4A00719B28 /* Build configuration list for PBXProject "MangaReader" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -774,6 +774,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = MangaRead;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -828,6 +829,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = MangaRead;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -848,9 +850,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = HSE.FinalSberProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MangaRead;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -867,9 +869,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = HSE.FinalSberProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MangaRead;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -956,7 +958,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B1A9D0D26CA6C4A00719B28 /* Build configuration list for PBXProject "FinalSberProject" */ = {
+		5B1A9D0D26CA6C4A00719B28 /* Build configuration list for PBXProject "MangaReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1A9D3D26CA6C4B00719B28 /* Debug */,

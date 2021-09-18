@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FinalSberProject
+@testable import MangaRead
 
 class FinalSberProjectTests: XCTestCase {
 

@@ -78,7 +78,6 @@ class ChapterOfMangaTableViewCell: UITableViewCell {
     }
 
     func configureCell(volume: Int, chapter: Double, nameChapter: String) {
-        // labelForChapter.text = "Том \(volume) Глава \(chapter) \(nameChapter)"
         labelForChapter.text = "Глава \(chapter)"
     }
 

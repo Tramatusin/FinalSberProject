@@ -5,7 +5,7 @@
 
 ## Листы онгоингов
 * ### Здесь вы можете выбрать список доступных комиксов по категории, выбрав сверху Манга, Манхва или Маньхуа
-![](ForReadMe/ongoings.png)
+![](https://user-images.githubusercontent.com/ForReadMe/ongoings.png)
 
 ## Карточка Выбранной манги
 ### Здесь вы можете увидеть:
@@ -28,7 +28,7 @@
 ![](ForReadMe/read.png)
 
 ## Краткая работа приложения:
-[![short-Work.gif](https://i.postimg.cc/SRd1KvYd/short-Work.gif)](https://postimg.cc/30yFS9B0)
+![](ForReadMe/ShortWork.gif)
 
 # Детали реализации
 ## Deployment Target: iOS 13
@@ -55,7 +55,7 @@
 ![](ForReadMe/offline.png)
 
 ## Работа офлайн режима и выход из него: 
-[![offline-Work.gif](https://i.postimg.cc/Z5GHJSDZ/offline-Work.gif)](https://postimg.cc/ZWLpL1SD)
+![](ForReadMe/offlineWork.gif)
 
 ## Кастомные анимации: 
 ### Не знаю насколько анимированные картинки являются кастомной анимацией, но она присутствует:

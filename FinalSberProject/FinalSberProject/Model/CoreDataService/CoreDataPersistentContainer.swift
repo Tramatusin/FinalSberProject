@@ -12,10 +12,10 @@ class Container {
 
     lazy var mangaContainer: NSPersistentContainer = {
         var modelURL = Bundle(for: type(of: self))
-            .url(forResource: "FinalSberProject", withExtension: "momd")!
+                .url(forResource: "FinalSberProject", withExtension: "momd")
 
-        modelURL.appendPathComponent("FinalSberProject.mom")
-        guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)
+        modelURL?.appendPathComponent("FinalSberProject.mom")
+        guard let model = modelURL, let managedObjectModel = NSManagedObjectModel(contentsOf: model)
             else { return mangaContainer }
         let mangaContainer = NSPersistentContainer(name: "LocalManga", managedObjectModel: managedObjectModel)
         mangaContainer.persistentStoreDescriptions.first?.shouldInferMappingModelAutomatically = false

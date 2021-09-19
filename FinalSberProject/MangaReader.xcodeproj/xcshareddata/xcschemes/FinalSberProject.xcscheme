@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
-               BuildableName = "FinalSberProject.app"
+               BuildableName = "MangaRead.app"
                BlueprintName = "FinalSberProject"
                ReferencedContainer = "container:MangaReader.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
-            BuildableName = "FinalSberProject.app"
+            BuildableName = "MangaRead.app"
             BlueprintName = "FinalSberProject"
             ReferencedContainer = "container:MangaReader.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
-            BuildableName = "FinalSberProject.app"
+            BuildableName = "MangaRead.app"
             BlueprintName = "FinalSberProject"
             ReferencedContainer = "container:MangaReader.xcodeproj">
          </BuildableReference>
@@ -93,7 +93,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B1A9D1126CA6C4A00719B28"
-            BuildableName = "FinalSberProject.app"
+            BuildableName = "MangaRead.app"
             BlueprintName = "FinalSberProject"
             ReferencedContainer = "container:MangaReader.xcodeproj">
          </BuildableReference>

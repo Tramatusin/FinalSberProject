@@ -196,6 +196,7 @@
 		5B062E6A26DB9E8B0042F123 /* CoreDataService */ = {
 			isa = PBXGroup;
 			children = (
+				5B062E6926DB9E4B0042F123 /* CoreDataExtensions */,
 				5B062E6B26DB9EC60042F123 /* CoreDataManager.swift */,
 				5B062E6D26DBA8D50042F123 /* CoreDataManagerImp.swift */,
 				5B062E6F26DBAA520042F123 /* CoreDataPersistentContainer.swift */,
@@ -265,7 +266,6 @@
 				5B1A9D5726CA8E8C00719B28 /* Entity */,
 				5B45C06426EE5CED00912BB9 /* JsonDataService */,
 				5B062E6A26DB9E8B0042F123 /* CoreDataService */,
-				5B062E6926DB9E4B0042F123 /* CoreDataExtensions */,
 				5B62F41C26D7CA91007675EB /* UserDefautsService */,
 				5B45C08A26F5164C00912BB9 /* ShowErrorsService */,
 				5B1A9D4F26CA702500719B28 /* NetworkService */,

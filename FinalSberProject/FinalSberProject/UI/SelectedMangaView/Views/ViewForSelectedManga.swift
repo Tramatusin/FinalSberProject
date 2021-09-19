@@ -93,7 +93,6 @@ class ViewForSelectedManga: UIView {
 
             viewForItems.rightAnchor.constraint(equalTo: rightAnchor),
             viewForItems.leftAnchor.constraint(equalTo: leftAnchor),
-            // viewForItems.heightAnchor.constraint(equalToConstant: 35),
             viewForItems.centerYAnchor.constraint(equalTo: imageViewForTitle.bottomAnchor),
 
             buttonForFullDescription.topAnchor.constraint(equalTo: viewForItems.topAnchor, constant: 4),

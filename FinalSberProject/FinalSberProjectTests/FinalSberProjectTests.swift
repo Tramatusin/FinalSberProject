@@ -224,6 +224,8 @@ class FinalSberProjectTests: XCTestCase {
         XCTAssertNotNil(receivedError)
     }
 
+    // MARK: - Tests Deserealize methods
+
     func testDeserializeMangas() throws {
         // arrange
         let bundle = Bundle(for: type(of: self))
@@ -236,20 +238,6 @@ class FinalSberProjectTests: XCTestCase {
 
         // assert
         XCTAssertNotNil(result)
-    }
-
-    func testNetMangaSetupMethod() throws {
-        // arrange
-        let netManga = NetManga(name: "solo", code: "sololevelup", description: "hello",
-                                tags: ["мистика", "фэнтези", "артефакты", "система"],
-                                cover: "22фоточка2", raiting: "", chapterCount: 2, ratCont: "")
-
-        // act
-        netManga.setupTagsAndCropBase64String()
-
-        // assert
-        XCTAssertEqual(netManga.cover, "фоточка")
-        XCTAssertEqual(netManga.tags, ["мистика", "фэнтези", "артефакты"])
     }
 
     func testDeserealizePages() throws {
@@ -266,7 +254,23 @@ class FinalSberProjectTests: XCTestCase {
         XCTAssertNotNil(result)
     }
 
-    // MARK: - Tests for JSONParser
+    // MARK: - Test of class NetManga
+
+    func testNetMangaSetupMethod() throws {
+        // arrange
+        let netManga = NetManga(name: "solo", code: "sololevelup", description: "hello",
+                                tags: ["мистика", "фэнтези", "артефакты", "система"],
+                                cover: "22фоточка2", raiting: "", chapterCount: 2, ratCont: "")
+
+        // act
+        netManga.setupTagsAndCropBase64String()
+
+        // assert
+        XCTAssertEqual(netManga.cover, "фоточка")
+        XCTAssertEqual(netManga.tags, ["мистика", "фэнтези", "артефакты"])
+    }
+
+    // MARK: - Tests for JSONDataService
 
     func testDeserializeMangaShouldReturnEmptyArray() throws {
         // arrange

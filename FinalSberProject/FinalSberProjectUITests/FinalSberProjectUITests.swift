@@ -24,8 +24,4 @@ class FinalSberProjectUITests: XCTestCase {
             })
     }
 
-    func testForReadVc() throws {
-        let readVC = ReadViewController()
-        assertSnapshot(matching: readVC, as: .image(on: .iPhoneSe))
-    }
 }

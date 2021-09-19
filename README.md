@@ -28,7 +28,7 @@
 ![](ForReadMe/read.png)
 
 ## Краткая работа приложения:
-![](ForReadMe/ShortWork.gif)
+![](ForReadMe/shortWork.gif)
 
 # Детали реализации
 ## Deployment Target: iOS 13

@@ -27,7 +27,7 @@
 
 ## Экран для чтения комиксов 
 * ### Здесь будут отображаться страницы выбранной вами главы
-<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/ongoings.png" width="300" />
+<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/read.png" width="300" />
 
 
 ## Краткая работа приложения:
@@ -55,7 +55,8 @@
 
 ## CoreData:
 ### CoreData используется для офлайн режима, если у пользователя не было сети, то ему отобразятся все комиксы, которые были ему до этого отображены, если запуск был первым, то список будет пустым. Если пользователь думает, что сеть снова появилась, то он может попробовать обновить таблицу, если сеть есть он увидит лоадер, в противном случае очередной алерт об ошибке.
-![](ForReadMe/offline.png)
+<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/offline.png" width="300" />
+
 
 ## Работа офлайн режима и выход из него: 
 ![](ForReadMe/offlineWork.gif)

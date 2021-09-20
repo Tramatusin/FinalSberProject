@@ -13,7 +13,8 @@
 * #### Название
 * #### Кнопку для открытия описания
 * #### Таблицу с доступными главами
-![](ForReadMe/manga.png)
+<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/manga.png" width="300" />
+
 
 ## Экран с описанием выбранной манги
 * ### Здесь можно увидеть:
@@ -21,11 +22,13 @@
 * #### рейтинг пользователей
 * #### Количество человек участвовавшее в его формировании
 * #### Описание того, что будет происходить в манге
-![](ForReadMe/description.png)
+<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/description.png" width="300" />
+
 
 ## Экран для чтения комиксов 
 * ### Здесь будут отображаться страницы выбранной вами главы
-![](ForReadMe/read.png)
+<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/ongoings.png" width="300" />
+
 
 ## Краткая работа приложения:
 ![](ForReadMe/shortWork.gif)

@@ -5,7 +5,7 @@
 
 ## Листы онгоингов
 * ### Здесь вы можете выбрать список доступных комиксов по категории, выбрав сверху Манга, Манхва или Маньхуа
-![](ForReadMe/ongoings.png)
+<img src="https://raw.githubusercontent.com/Tramatusin/FinalSberProject/main/ForReadMe/ongoings.png" width="300" />
 
 ## Карточка Выбранной манги
 ### Здесь вы можете увидеть:
